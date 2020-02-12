@@ -1,0 +1,343 @@
+
+* {
+    margin: 0;
+    padding : 0;
+}
+
+
+section {
+    padding: 8.5rem 0;
+    min-height: 100vh;
+}
+
+@media only screen and (max-width: 896px) {
+
+    section {
+        padding: 4rem 0;
+        min-height: 100vh;
+    }
+}
+
+a, li, p, h2 {
+    text-decoration: none;
+    font-family: 'Esteban', serif;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+/* Palette */
+
+    /* Color Theme Swatches in Hex */
+    .Blue-Port-2019-1-hex { color: #0476D9; }
+    .Blue-Port-2019-2-hex { color: #023859; }
+    .Blue-Port-2019-3-hex { color: #F2B705; }
+    .Blue-Port-2019-4-hex { color: #F29F05; }
+    .Blue-Port-2019-5-hex { color: #F27405; }
+
+    /* Color Theme Swatches in RGBA */
+    .Blue-Port-2019-1-rgba { color: rgba(4, 117, 216, 1); }
+    .Blue-Port-2019-2-rgba { color: rgba(1, 55, 89, 1); }
+    .Blue-Port-2019-3-rgba { color: rgba(242, 182, 4, 1); }
+    .Blue-Port-2019-4-rgba { color: rgba(242, 159, 4, 1); }
+    .Blue-Port-2019-5-rgba { color: rgba(242, 115, 4, 1); }
+
+.bg-sky {
+    background-color: #0476D9;
+}
+
+.bg-deep {
+    background-color : #023859;
+}
+
+.bg-flash {
+    background-color : #F2B705;
+}
+
+.bg-sun {
+    background-color: #F29F05;
+}
+
+.bg-flame {
+    background-color: #F27405;
+}
+
+.bg-white-modern {
+    background: rgba(248, 249, 250, 1);
+}
+
+/* Configuration d'un nouveau type de bouton */
+    .btn-flame {
+        color: #fff;
+        background-color: #F27405;
+        border-color: #F27405;
+    }
+
+    .btn-flame:hover {
+        color: #fff;
+        background-color: rgba(242, 115, 4, 0.85);
+        border-color: rgba(242, 115, 4, 0.85);
+    }
+
+    .btn-flame:focus, .btn-flame.focus {
+        box-shadow: 0 0 0 0.2rem rgba(242, 115, 4, 0.4);
+    }
+
+    .btn-flame.disabled, .btn-flame:disabled {
+        color: #fff;
+        background-color: #F27405;
+        border-color: #F27405;
+    }
+
+    .btn-flame:not(:disabled):not(.disabled):active, .btn-flame:not(:disabled):not(.disabled).active,
+    .show > .btn-flame.dropdown-toggle {
+        color: #fff;
+        background-color: rgba(242, 115, 4, 1);
+        border-color: rgba(242, 115, 4, 1);
+    }
+
+    .btn-flame:not(:disabled):not(.disabled):active:focus, .btn-flame:not(:disabled):not(.disabled).active:focus,
+    .show > .btn-flame.dropdown-toggle:focus {
+        box-shadow: 0 0 0 0.2rem rgba(242, 115, 4, 0.4);
+    }
+
+.btn-xl {
+    font-size: 4vh;
+    padding: 0.35em 0.75em;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 992px) {
+    .btn-xl {
+        font-size: 3vh;
+        padding: 0.2em 0.5em;
+    }
+}
+
+.form-custom {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: rgba(248, 249, 250, 1);
+    background-clip: padding-box;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,.5);
+    transition: 0.5s;
+}
+
+.form-custom:focus {
+    border-bottom: 1px solid #F27405;
+    outline: none;
+}
+
+.field-error {
+    color:  #F27405;
+}
+
+/* Couleur pour texte white */
+.text-white {
+    color: rgb(237,237,237);
+}
+
+/* Couleur fond modal */
+.modal-content {
+    background: rgba(248, 249, 250, 1);
+}
+
+/* Changement de la couleur des logos de Font Awesome */
+.fa-times, .fa-angle-up, .fa-bars {
+     color: white;
+}
+
+/* Configuration des sections */
+.section-main {
+    background: url(../../assets/images/background_home/sky_background.png) no-repeat center center;
+    background-size: cover;
+}
+
+/* Configuration du bouton de déclemenchement de la sidebar */
+.menu-trigger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 3em;
+    height: 3em;
+    top : 1em;
+    left: 1em;
+    text-align: center;
+    /* background: rgba(4, 117, 216, 0.5); */
+    /* background: rgba(242,116,5,0.7); */
+    background: rgba(5,5,5,0.5);
+    transition: 0.3s;
+}
+
+.menu-trigger:hover, .menu-top:hover {
+
+    /* background: rgba(4, 117, 216, 1); */
+    /* background: rgba(242,116,5,0.9); */
+    background: rgba(5,5,5,0.9);
+
+}
+
+.menu-top {
+    display: flex;
+    position: fixed;
+    width: 3em;
+    height: 3em;
+    bottom : 1em;
+    left: 1em;
+    text-align: center;
+    background: rgba(5,5,5,0.5);
+    transition: 0.3s;
+}
+
+.menu-bottom {
+    display: flex;
+    position: fixed;
+    width: 3em;
+    height: 3em;
+    bottom : 1em;
+    right: 1em;
+    text-align: center;
+    background: rgba(5,5,5,0.5);
+    transition: 0.3s;
+}
+
+
+/* Configuration de la sidebar */
+#sidebar {
+    display: flex;
+    justify-content: center;
+    width: 350px;
+    background: rgba(237,237,237,1);
+    position: fixed;
+    min-height: 100%;
+    top: 0;
+    left: -350px;
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+
+#sidebar.visible {
+    left: 0px;
+    transition: left 0.7s ease;
+}
+
+@media only screen and (max-width: 896px) {
+    #sidebar {
+        width: 100vw;
+        left: -100vw;
+    }
+}
+
+#sidebar ul {
+    margin: 5em 1em 0 1em;
+    padding: 0;
+}
+
+@media only screen and (max-width: 896px) {
+    #sidebar ul {
+        margin: auto 0.5em;
+    }
+}
+
+#sidebar ul li {
+    list-style: none;
+    font-size: large;
+    padding: 1.5em 0;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+
+}
+
+#sidebar ul li a {
+    text-decoration: none;
+    color: rgba(35,35,35,1);
+    transition: color 0.3s;
+}
+
+#sidebar ul li a:hover {
+    text-decoration: none;
+    color: rgba(242,116,5,1);
+}
+
+
+/* Titres principaux (première section) */
+
+.main-title {
+    font-size: 10vh;
+    border-bottom: 2px solid rgba(237,237,237,1);
+}
+
+.main-sub-title {
+    font-size: 4vh;
+}
+
+
+/* Titres (reste de la page) */
+.title {
+    font-size: 8vh;
+}
+
+.sub-title {
+    font-size: 3vh;
+}
+
+
+@media only screen and (max-width: 896px) and (orientation: portrait) {
+    .title {
+        font-size: 5vh;
+    }
+
+    .sub-title {
+        font-size: 2.5vh;
+    }
+}
+
+
+/* Image de profil */
+
+#profile-img {
+    height: 50vh;
+}
+
+@media only screen and (max-width: 896px) and (orientation: portrait) {
+    #profile-img {
+        height: 25vh;
+    }
+}
+
+.border-flame-left {
+    border-left: 2px solid rgba(242, 115, 4, 1);
+}
+
+.border-flame-right {
+    border-right: 2px solid rgba(242, 115, 4, 1);
+}
+
+.border-flame-bottom {
+    border-bottom: 2px solid rgba(242, 115, 4, 1);
+}
+
+.border-flame-top {
+    border-top: 2px solid rgba(242, 115, 4, 1);
+}
+
+
+@media only screen and (max-width: 1199px) {
+    .border-flame-left, .border-flame-right, .border-flame-bottom, .border-flame-top {
+        border: none;
+    }
+}
