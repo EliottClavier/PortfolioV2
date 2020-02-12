@@ -76,21 +76,21 @@ class CI_Email {
 	 *
 	 * @var	string
 	 */
-	public $smtp_host	= 'smtp.googlemail.com';
+	public $smtp_host	= 'smtp.ionos.fr';
 
 	/**
 	 * SMTP Username
 	 *
 	 * @var	string
 	 */
-	public $smtp_user	= 'clavier.eliott.el@gmail.com';
+	public $smtp_user	= 'eliott.clavier.redirection@eliott-clavier.com';
 
 	/**
 	 * SMTP Password
 	 *
 	 * @var	string
 	 */
-	public $smtp_pass	= 'Eclavier310801';
+	public $smtp_pass	= '//Archibald3101';
 
 	/**
 	 * SMTP Server port

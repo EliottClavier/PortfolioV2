@@ -43,17 +43,17 @@ class Home extends MY_Controller {
             array(
                 'field' => 'contactName',
                 'label' => 'concernant votre nom',
-                'rules' => 'trim|required|max_length[75]'
+                'rules' => 'trim|required|max_length[75]|alpha_dash'
             ),
             array(
                 'field' => 'contactFirstName',
                 'label' => 'concernant votre prénom',
-                'rules' => 'trim|required|max_length[75]'
+                'rules' => 'trim|required|max_length[75]|alpha_dash'
             ),
             array(
                 'field' => 'contactCompanyName',
                 'label' => 'concernant le nom de votre l\'entreprise',
-                'rules' => 'trim|required|max_length[75]'
+                'rules' => 'trim|required|max_length[100]|alpha_dash'
             ),
             array(
                 'field' => 'contactEmail',
@@ -63,12 +63,12 @@ class Home extends MY_Controller {
             array(
                 'field' => 'contactObject',
                 'label' => 'concernant l\'object de votre message',
-                'rules' => 'trim|required|max_length[100]'
+                'rules' => 'trim|required|max_length[200]|alpha_numeric_spaces'
             ),
             array(
                 'field' => 'contactText',
                 'label' => 'concernant votre message',
-                'rules' => 'trim|required|max_length[500]'
+                'rules' => 'trim|required|max_length[2000]|alpha_numeric_spaces'
             ),
         );
 
@@ -95,31 +95,15 @@ class Home extends MY_Controller {
                 'message_text' => $data['contactText'],
 
             );
-
-            $config = Array(
-                'protocol' => 'smtp',
-                'smtp_host' => 'ssl://smtp.googlemail.com',
-                'smtp_port' => 465,
-                'smtp_user' => 'clavier.eliott.el@gmail.com',
-                'smtp_pass' => 'Eclavier310801',
-                'mailtype'  => 'html',
-                'charset'   => 'iso-8859-1'
-            );
+          
             $this->load->library('email');
 
-
-            $this->email->from($setData['email'], $setData['name'] . ' ' . $setData['first_name'] . ' - ' . $setData['company_name']);
-            $this->email->to('eliott.clavier@students.campus');
-            $this->email->subject($setData['message_object']);
-            $this->email->message($setData['message_text']);
+            $this->email->from(htmlspecialchars($setData['email']), htmlspecialchars($setData['name'])
+            . ' ' . htmlspecialchars($setData['first_name']) . ' - ' . htmlspecialchars($setData['company_name']));
+            $this->email->to('eliott.clavier.redirection@eliott-clavier.com');
+            $this->email->subject(htmlspecialchars($setData['message_object']));
+            $this->email->message(htmlspecialchars($setData['message_text']) . "\r\n" . htmlspecialchars($setData['email']));
             $this->email->send();
-
-            $this->email->send();
-            echo $this->email->print_debugger();
-
-
-
-            // $this->portfolioManager->formComplete('contact', $setData);
 
         }
 
@@ -133,17 +117,17 @@ class Home extends MY_Controller {
             array(
                 'field' => 'recommendName',
                 'label' => 'concernant votre nom',
-                'rules' => 'trim|required|max_length[75]'
+                'rules' => 'trim|required|max_length[75]|alpha_dash'
             ),
             array(
                 'field' => 'recommendFirstName',
                 'label' => 'concernant votre prénom',
-                'rules' => 'trim|required|max_length[75]'
+                'rules' => 'trim|required|max_length[75]|alpha_dash'
             ),
             array(
                 'field' => 'recommendCompanyName',
                 'label' => 'concernant le nom de votre l\'entreprise',
-                'rules' => 'trim|required'
+                'rules' => 'trim|required|max_length[100]|alpha_dash'
             ),
             array(
                 'field' => 'recommendEmail',
@@ -163,7 +147,7 @@ class Home extends MY_Controller {
             array(
                 'field' => 'recommendText',
                 'label' => 'concernant votre message',
-                'rules' => 'trim|required|max_length[500]'
+                'rules' => 'trim|required|max_length[2000]|alpha_numeric_spaces'
             ),
         );
 
