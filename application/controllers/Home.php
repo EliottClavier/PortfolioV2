@@ -7,7 +7,6 @@ class Home extends MY_Controller {
 	{
 		parent::__construct();
         $this->load->model('portfolio_model', 'portfolioManager');
-
 	}
 
 	public function index() {
@@ -23,7 +22,6 @@ class Home extends MY_Controller {
             'assets/js/features',
             'assets/js/form',
         ));
-
 
         /*
         $timezone = date_default_timezone_set('Europe/Paris');
@@ -98,7 +96,30 @@ class Home extends MY_Controller {
 
             );
 
-            $this->portfolioManager->formComplete('contact', $setData);
+            $config = Array(
+                'protocol' => 'smtp',
+                'smtp_host' => 'ssl://smtp.googlemail.com',
+                'smtp_port' => 465,
+                'smtp_user' => 'clavier.eliott.el@gmail.com',
+                'smtp_pass' => 'Eclavier310801',
+                'mailtype'  => 'html',
+                'charset'   => 'iso-8859-1'
+            );
+            $this->load->library('email');
+
+
+            $this->email->from($setData['email'], $setData['name'] . ' ' . $setData['first_name'] . ' - ' . $setData['company_name']);
+            $this->email->to('eliott.clavier@students.campus');
+            $this->email->subject($setData['message_object']);
+            $this->email->message($setData['message_text']);
+            $this->email->send();
+
+            $this->email->send();
+            echo $this->email->print_debugger();
+
+
+
+            // $this->portfolioManager->formComplete('contact', $setData);
 
         }
 
