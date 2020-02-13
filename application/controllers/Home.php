@@ -23,7 +23,7 @@ class Home extends MY_Controller {
             'assets/js/main_form',
         ));
 
-        $this->data['subview'] = 'front_office/main';
+        $this->data['subview'] = 'index';
 
         $this->load->view('components_home/main', $this->data);
 
@@ -79,6 +79,7 @@ class Home extends MY_Controller {
 
         } else {
 
+
             $setData = array(
 
                 'name' => $data['contactName'],
@@ -98,6 +99,8 @@ class Home extends MY_Controller {
             $this->email->subject(htmlspecialchars($setData['message_object']));
             $this->email->message(htmlspecialchars($setData['message_text']) . "\r\n" . htmlspecialchars($setData['email']));
             $this->email->send();
+
+            echo $this->email->print_debugger();
 
         }
 

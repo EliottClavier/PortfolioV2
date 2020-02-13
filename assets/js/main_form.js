@@ -3,7 +3,7 @@ $('button.btn-contact-send').on('click', function() {
     $('#modalContact').modal("show");
 
     var formData = $('form.form-contact').serialize();
-    var url = site_url + 'home/attempt-contact/';
+    var url = site_url + 'attempt-contact/';
 
     // On clear les potentielles erreur qui auraient été affiché à un premier essais
     $('p.field-error').text('');
@@ -48,7 +48,7 @@ $('button.btn-recommend-send').on('click', function() {
     $('#modalRecomend').modal("show");
 
     var formData = $('form.form-recommend').serialize();
-    var url = site_url + 'home/attempt-recommend/';
+    var url = site_url + 'attempt-recommend/';
 
     // On clear les potentielles erreur qui auraient été affiché à un premier essais
     $('p.field-error').text('');
