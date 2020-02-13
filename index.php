@@ -36,6 +36,9 @@
  * @filesource
  */
 
+/* TIME ZONE */
+date_default_timezone_set('Europe/Paris');
+
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT

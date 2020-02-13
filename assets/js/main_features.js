@@ -2,7 +2,7 @@ $('.menu-trigger').on('click', function() {
 
     // La balise <i> de Font Awesome se tranforme en balise svg
    $(this).find('svg').toggleClass('fa-bars fa-times');
-   $('#sidebar').toggleClass('visible');
+   $('#sidebar').toggleClass('visible-sidebar');
 
 });
 
@@ -28,15 +28,9 @@ window.addEventListener("scroll",function() {
 
 },false);
 
-/*
-var lastScrollTop = 0;
-$(window).scroll(function(event){
-   var st = $(this).scrollTop();
-   if (st > lastScrollTop){
-      // downscroll code
-   } else {
-      // upscroll code
-   }
-   lastScrollTop = st;
+$('a.phone-trigger').on('click', function() {
+   $('a#phone').toggleClass('display-0 visible');
+   $('a.linkedin').toggleClass('display-0');
+   $('a.github').toggleClass('display-0');
+   $(this).find('svg').toggleClass('fa-phone fa-undo-alt');
 });
-*/

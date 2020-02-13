@@ -18,7 +18,7 @@ section {
     }
 }
 
-a, li, p, h2 {
+a, li, p, h2, button {
     text-decoration: none;
     font-family: 'Esteban', serif;
 }
@@ -49,7 +49,9 @@ h1 {
     .Blue-Port-2019-5-rgba { color: rgba(242, 115, 4, 1); }
 
 .bg-sky {
-    background-color: #0476D9;
+    /* background-color: #0476D9; */
+    background: #007bff;
+    background: linear-gradient(to right, #0476D9, #33AEFF);
 }
 
 .bg-deep {
@@ -69,7 +71,9 @@ h1 {
 }
 
 .bg-white-modern {
-    background: rgba(248, 249, 250, 1);
+    /* background: rgba(248, 249, 250, 1); */
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 50%, rgba(230,230,230,1) 80%, rgba(210,210,210,1) 100%);
 }
 
 /* Configuration d'un nouveau type de bouton */
@@ -120,6 +124,10 @@ h1 {
     }
 }
 
+.display-0 {
+    display: none;
+}
+
 .form-custom {
     display: block;
     width: 100%;
@@ -156,7 +164,7 @@ h1 {
 }
 
 /* Changement de la couleur des logos de Font Awesome */
-.fa-times, .fa-angle-up, .fa-bars {
+.fa-times, .fa-angle-up, .fa-bars, .fa-arrow-left {
      color: white;
 }
 
@@ -167,28 +175,31 @@ h1 {
 }
 
 /* Configuration du bouton de déclemenchement de la sidebar */
-.menu-trigger {
+.menu-trigger, .go-back {
     display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
-    width: 3em;
     height: 3em;
     top : 1em;
     left: 1em;
     text-align: center;
-    /* background: rgba(4, 117, 216, 0.5); */
-    /* background: rgba(242,116,5,0.7); */
     background: rgba(5,5,5,0.5);
     transition: 0.3s;
 }
 
-.menu-trigger:hover, .menu-top:hover {
+.menu-trigger {
+    width: 3em;
+}
 
-    /* background: rgba(4, 117, 216, 1); */
-    /* background: rgba(242,116,5,0.9); */
+.go-back {
+    width: auto;
+    z-index: 1500;
+}
+
+.menu-trigger:hover, .menu-top:hover, .go-back:hover {
+    text-decoration: none;
     background: rgba(5,5,5,0.9);
-
 }
 
 .menu-top {
@@ -231,7 +242,7 @@ h1 {
 }
 
 
-#sidebar.visible {
+#sidebar.visible-sidebar {
     left: 0px;
     transition: left 0.7s ease;
 }
@@ -258,8 +269,10 @@ h1 {
     list-style: none;
     font-size: large;
     padding: 1.5em 0;
-    border-bottom: 1px solid rgba(0,0,0,.2);
+}
 
+#sidebar ul li:not(:last-child) {
+    border-bottom: 1px solid rgba(0,0,0,.2);
 }
 
 #sidebar ul li a {
@@ -273,6 +286,14 @@ h1 {
     color: rgba(242,116,5,1);
 }
 
+/* Configuration du footer */
+#page-content {
+    flex: 1 0 auto;
+}
+
+#sticky-footer {
+    flex-shrink: none;
+}
 
 /* Titres principaux (première section) */
 

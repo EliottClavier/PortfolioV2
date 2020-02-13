@@ -64,3 +64,5 @@ $route['logout'] = 'auth/logout';
 $route['home'] = 'home';
 $route['home/attempt-contact'] = 'home/formContact';
 $route['home/attempt-recommend'] = 'home/formRecommend';
+
+$route['recommend'] = 'recommend';

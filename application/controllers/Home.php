@@ -19,15 +19,9 @@ class Home extends MY_Controller {
         $this->data['js'] = $this->layout->add_js(array(
             'assets/plugins/jquery-3.3.1.min',
             'assets/plugins/bootstrap/js/bootstrap.min',
-            'assets/js/features',
-            'assets/js/form',
+            'assets/js/main_features',
+            'assets/js/main_form',
         ));
-
-        /*
-        $timezone = date_default_timezone_set('Europe/Paris');
-        $date = date('Y-m-d h:i:s a', time());
-        echo $date;
-        */
 
         $this->data['subview'] = 'front_office/main';
 
@@ -43,17 +37,17 @@ class Home extends MY_Controller {
             array(
                 'field' => 'contactName',
                 'label' => 'concernant votre nom',
-                'rules' => 'trim|required|max_length[75]|alpha_dash'
+                'rules' => 'trim|required|max_length[75]'
             ),
             array(
                 'field' => 'contactFirstName',
                 'label' => 'concernant votre prénom',
-                'rules' => 'trim|required|max_length[75]|alpha_dash'
+                'rules' => 'trim|required|max_length[75]'
             ),
             array(
                 'field' => 'contactCompanyName',
                 'label' => 'concernant le nom de votre l\'entreprise',
-                'rules' => 'trim|required|max_length[100]|alpha_dash'
+                'rules' => 'trim|required|max_length[100]'
             ),
             array(
                 'field' => 'contactEmail',
@@ -63,12 +57,12 @@ class Home extends MY_Controller {
             array(
                 'field' => 'contactObject',
                 'label' => 'concernant l\'object de votre message',
-                'rules' => 'trim|required|max_length[200]|alpha_numeric_spaces'
+                'rules' => 'trim|required|max_length[200]'
             ),
             array(
                 'field' => 'contactText',
                 'label' => 'concernant votre message',
-                'rules' => 'trim|required|max_length[2000]|alpha_numeric_spaces'
+                'rules' => 'trim|required|max_length[2000]'
             ),
         );
 
@@ -117,17 +111,17 @@ class Home extends MY_Controller {
             array(
                 'field' => 'recommendName',
                 'label' => 'concernant votre nom',
-                'rules' => 'trim|required|max_length[75]|alpha_dash'
+                'rules' => 'trim|required|max_length[75]'
             ),
             array(
                 'field' => 'recommendFirstName',
                 'label' => 'concernant votre prénom',
-                'rules' => 'trim|required|max_length[75]|alpha_dash'
+                'rules' => 'trim|required|max_length[75]'
             ),
             array(
                 'field' => 'recommendCompanyName',
                 'label' => 'concernant le nom de votre l\'entreprise',
-                'rules' => 'trim|required|max_length[100]|alpha_dash'
+                'rules' => 'trim|required|max_length[100]'
             ),
             array(
                 'field' => 'recommendEmail',
@@ -147,7 +141,7 @@ class Home extends MY_Controller {
             array(
                 'field' => 'recommendText',
                 'label' => 'concernant votre message',
-                'rules' => 'trim|required|max_length[2000]|alpha_numeric_spaces'
+                'rules' => 'trim|required|max_length[2000]'
             ),
         );
 
@@ -172,6 +166,7 @@ class Home extends MY_Controller {
                 'email' => $data['recommendEmail'],
                 'date_start' => $data['recommendStart'],
                 'date_end' => $data['recommendEnd'],
+                'date_created' => date("Y-m-d H:i:s"),
                 'message_text' => $data['recommendText'],
 
             );

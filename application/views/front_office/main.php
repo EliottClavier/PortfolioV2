@@ -230,11 +230,11 @@
 
                         </div>
 
+                    </div>
+
                 </div>
 
             </div>
-
-        </div>
 
             <span class="col-xl-2 my-2 text-center"></span>
 
@@ -337,6 +337,18 @@
                     </div>
 
                 </div>
+
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center">
+
+            <div class="col-6-xl mt-5 text-center">
+
+                <h1 class="sub-title"> Un coup d'oeil sur mes recommendations ? </h1>
+
+                <a href="<?= base_url() . 'recommend' ?>" class="btn btn-lg btn-flame m-3"> C'est parti !</a>
 
             </div>
 

@@ -7,9 +7,10 @@
 
 <?php if ($subview === 'index') {
     // on load rien
+} elseif ($subview === 'front_office/main') {
+    $this->load->view('components_home/sidebar');
 } else {
     $this->load->view('components_home/header');
-    $this->load->view('components_home/sidebar');
 } ?>
 
 <?php $this->load->view($subview) ?>

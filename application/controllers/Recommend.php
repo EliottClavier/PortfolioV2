@@ -1,0 +1,41 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Recommend extends MY_Controller {
+
+	public function __construct()
+	{
+		parent::__construct();
+        $this->load->model('portfolio_model', 'portfolioManager');
+	}
+
+	public function index() {
+        // Chargement des CSS
+        $this->data['css'] = $this->layout->add_css(array(
+            'assets/plugins/bootstrap/css/bootstrap.min',
+            'assets/css/styles'
+        ));
+        // Chargement des JS
+        $this->data['js'] = $this->layout->add_js(array(
+            'assets/plugins/jquery-3.3.1.min',
+            'assets/plugins/bootstrap/js/bootstrap.min',
+        ));
+
+        /*
+        $format_fr = implode('-',array_reverse  (explode('/',$format_us)));
+        echo  $format_fr;
+        */
+
+
+        $this->data['recommendations'] = $this->portfolioManager->getRecommendations();
+
+        // die(var_dump($this->data['recommendations']));
+
+        $this->data['subview'] = 'front_office/recommend';
+
+        $this->load->view('components_home/main', $this->data);
+
+    }
+
+
+}
