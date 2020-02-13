@@ -168,7 +168,7 @@ h1 {
 
 .form-admin::placeholder {
     color: snow;
-    opacity: 0.7;
+    opacity: 0.85;
 }
 
 
@@ -230,6 +230,7 @@ h1 {
 
 .menu-trigger, .shut-down {
     width: 3em;
+    z-index: 1500;
 }
 
 .go-back {

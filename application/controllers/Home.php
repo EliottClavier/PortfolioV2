@@ -100,8 +100,6 @@ class Home extends MY_Controller {
             $this->email->message(htmlspecialchars($setData['message_text']) . "\r\n" . htmlspecialchars($setData['email']));
             $this->email->send();
 
-            echo $this->email->print_debugger();
-
         }
 
     }
@@ -174,7 +172,7 @@ class Home extends MY_Controller {
 
             );
 
-            $this->portfolioManager->formComplete('recommend', $setData);
+            $this->portfolioManager->insertDB('recommend', $setData);
 
         }
 

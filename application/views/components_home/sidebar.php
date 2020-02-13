@@ -14,6 +14,10 @@
 
                 <a class="sub-title display-0" id="phone">06 02 06 56 35</a>
 
+                <a class="sub-title settings px-4" href="<?= base_url() . 'admin' ?>">
+                    <i class="fas fa-cog fa-sm"></i>
+                </a>
+
                 <a class="sub-title linkedin px-4" href="https://www.linkedin.com/in/eliott-clavier-154843197/" target="_blank">
                     <i class="fab fa-linkedin-in fa-sm"></i>
                 </a>

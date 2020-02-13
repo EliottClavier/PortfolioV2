@@ -1,3 +1,5 @@
+<?php if($this->session->userdata('user')) { ?>
+
 <div class="container">
 
     <a class="go-back justify-content-center align-items-center rounded p-3" href="<?= base_url() . 'admin'?>">
@@ -22,10 +24,21 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-3">
-                            <h1 class="sub-title text-left"> <?= '#' . $recommendation->id ?> </h1>
+                                <h1 class="sub-title text-left"> <?= '#' . $recommendation->id ?> </h1>
                             </div>
                             <div class="col-6">
-                            <h1 class="sub-title text-center"> <?= 'Avis de  ' . $recommendation->first_name . ' ' . $recommendation->name ?> </h1>
+                                <h1 class="sub-title text-center"> <?= 'Avis de  ' . $recommendation->first_name . ' ' . $recommendation->name ?> </h1>
+                            </div>
+                            <div class="col-2 text-center">
+
+                                <?php if ($recommendation->status === 'verified') { ?>
+                                    <i class="fas fa-power-off fa-lg" style="color: #212529"></i>
+                                <?php } ?>
+
+                                <?php if ($recommendation->status === 'pending') { ?>
+                                <i class="fas fa-power-off fa-lg" style="color: #212529"></i>
+                                <?php } ?>
+
                             </div>
                         </div>
 
@@ -51,3 +64,10 @@
     </div>
 
 </section>
+
+<?php } else {
+
+    header('Location: ../admin');
+    exit();
+}
+?>

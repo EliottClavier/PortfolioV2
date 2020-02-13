@@ -4,6 +4,12 @@
 
         <div class="container">
 
+            <div class="row justify-content-center text-white">
+
+                <hi class="title"> Panel Administratif </hi>
+
+            </div>
+
             <form class="form-admin-login">
 
                 <div class="row form-group justify-content-center">
@@ -50,11 +56,17 @@
 
                 <div class="row form-group text-center justify-content-center">
 
-                    <div class="col-7 m-2">
+                    <div class="col-xl-7 m-2">
+
+                        <a class="btn btn-outline-dark btn-lg"  href="<?= base_url() ?>">
+                            Retour à l'accueil
+                        </a>
 
                         <button type="button" class="btn btn-dark btn-lg btn-admin-login"> Connexion </button>
 
                     </div>
+
+
 
                 </div>
 
@@ -67,10 +79,140 @@
 
     <?php if($this->session->userdata('user')) { ?>
 
-    <a class="shut-down btn justify-content-center align-items-center rounded" href="<?= base_url() . 'admin/logout' ?>">
-        <i class="fas fa-power-off"></i>
-    </a>
 
+    <div class="container">
+        <div class="row text-center justify-content-center align-items-center">
+
+            <div class="col-sm-8 my-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="card-title sub-title">
+                           Modifications du compte <?= $this->session->userdata('user') ?>
+                        </h1>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-dark btn-update-user-id m-2" data-toggle="modal" data-target="#modalUpdateUserName">
+                            Changer son identifiant
+                        </button>
+                        <button class="btn btn-dark btn-update-user-password m-2" data-toggle="modal" data-target="#modalUpdateUserPassword">
+                            Changer son mot de passe
+                        </button>
+                    </div>
+                    <div class="card-footer">
+                        <p class="text-dark"> <?= 'Dernière connexion le ' . $this->session->userdata('lastConnection') ?> </p>
+                    </div>
+                </div>
+
+                <!-- Modal Identifiant -->
+                <div class="modal fade" id="modalUpdateUserName" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+
+                            <form class="form-update-user-name">
+
+                                <div class="modal-body justify-content-center">
+
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-11">
+                                            <h1 class="form-custom sub-title"> <?= 'Identifiant actuel : ' . $this->session->userdata('user')?> </h1>
+                                        </div>
+
+                                        <div class="col-11">
+                                            <label class="invisible" for="userName"></label>
+                                            <input type="text" class="form-custom" name="userName" id="userName" placeholder="Nouvel identifiant" >
+                                            <p class="field-error-admin text-danger mt-3" data-field="userName"></p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal"> Annuler </button>
+                                    <button type="button" class="btn btn-primary btn-update-user-name-send" data-target="#modalUpdateUserName"> Modifier </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Modal Mot de passe -->
+                <div class="modal fade" id="modalUpdateUserPassword" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+
+                            <form class="form-update-user-password">
+
+                                <div class="modal-body justify-content-center">
+
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-11">
+                                            <label class="invisible" for="userPassword"></label>
+                                            <input type="password" class="form-custom" name="userPassword" id="userPassword" placeholder="Nouveau mot de passe">
+                                            <p class="field-error-admin text-danger mt-3" data-field="userPassword"></p>
+                                        </div>
+
+                                        <div class="col-11">
+                                            <label class="invisible" for="userPasswordConfirm"></label>
+                                            <input type="password" class="form-custom" name="userPasswordConfirm" id="userPasswordConfirm" placeholder="Confirmation du nouveau mot de passe">
+                                            <p class="field-error-admin text-danger mt-3" data-field="userPasswordConfirm"></p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-dark" data-dismiss="modal"> Annuler </button>
+                                    <button type="button" class="btn btn-primary btn-update-user-password-send" data-target="#modalUpdateUserPassword"> Modifier </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="row text-center justify-content-center align-items-center">
+            <div class="col-sm-6 my-3">
+                <div class="card">
+                    <div class="card-body">
+                            <h1 class="card-title sub-title">
+                                Mur des recommandations
+                            </h1>
+                        <p class="card-text"> 36 recommendations en attentes </p>
+                        <p class="card-text"> 16 recommendations visibles </p>
+                        <a href="<?= base_url() . 'admin/recommend' ?>" class="btn btn-dark"> Panneau de modification des recommandations </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 my-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title sub-title">
+                            Section projet
+                        </h1>
+                        <p class="card-text"> 5 projets sont actuellement affichés sur le site </p>
+                        <a href="<?= base_url() . 'admin/project' ?>" class="btn btn-dark"> Panneau de modification des projets </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php } ?>
 
 </section>

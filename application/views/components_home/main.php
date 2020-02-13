@@ -6,7 +6,7 @@
 <body class="landing-page">
 
 <?php if (strpos($subview, 'admin')) {
-    // on load rien
+    $this->load->view('components_home/button_logout');
 } elseif ($subview === 'index') {
     $this->load->view('components_home/sidebar');
 } else {

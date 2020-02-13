@@ -35,19 +35,15 @@ $('button.btn-admin-login').on('click', function () {
                         position : 'center',
                         icon : 'success',
                         title : 'Vous êtes connecté au panel administration !',
-                        showConfirmButton : false
+                        showConfirmButton : false,
+                        timer: 1000,
                     });
+                    setTimeout(function(){ location.reload() }, 1300);
 
                 }
 
             }
-        })
+        });
 
     }
-});
-
-$('button.shut-down').on('click', function() {
-
-
-
 });

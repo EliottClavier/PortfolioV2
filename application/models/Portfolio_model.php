@@ -10,7 +10,7 @@ class Portfolio_model extends CI_Model
 
 	}
 
-	public function formComplete($table, $data) {
+	public function insertDB($table, $data) {
 
 	    $this->db->insert($table, $data);
 
@@ -27,6 +27,39 @@ class Portfolio_model extends CI_Model
 
         $result = $this->db->get();
         return $result->result();
+
+    }
+
+    public function adminLogsUpdate($columnName, $data, $id) {
+
+        $this->db->set($columnName, $data)
+        ->where('id', $id)
+        ->update('admin_logs');
+
+    }
+
+    public function checkExistUser($where) {
+
+        // die(var_dump($field));
+
+        $query = $this->db->select('*')
+            ->from('admin_logs')
+            ->where('admin_name', $where)
+            ->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->row();
+        } else {
+            return false;
+        }
+
+    }
+
+    public function cipherPassword($password) {
+
+        $cipherPassword = $this->encryption->encrypt($password);
+
+        return $cipherPassword;
 
     }
 

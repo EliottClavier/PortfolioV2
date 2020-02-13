@@ -22,6 +22,7 @@ class Admin_hub extends MY_Controller {
             'assets/plugins/jquery-3.3.1.min',
             'assets/plugins/bootstrap/js/bootstrap.min',
             'assets/js/admin/admin_login',
+            'assets/js/admin/admin_update_user_data',
         ));
 
 
@@ -33,7 +34,8 @@ class Admin_hub extends MY_Controller {
 
     public  function logout() {
         $this->session->sess_destroy();
-        redirect();
+        header('Location: ../admin');
+        exit();
     }
 
     public function login_attempt() {
@@ -81,8 +83,16 @@ class Admin_hub extends MY_Controller {
 
                 if ($checkCouple) {
 
+                    /* Création de la session */
+                    $id = $checkUser->id;
+                    $this->session->set_userdata('id', $id);
                     $this->session->set_userdata('user', $login);
-                    $this->session->set_userdata('email', $checkUser->admin_mail);
+                    $this->session->set_userdata('lastConnection', $checkUser->lastConnection);
+
+                    /* Changement de la dernière date de connection */
+                    $lastConnection = date("Y-m-d H:i:s");
+
+                    $this->portfolioManager->adminLogsUpdate('lastConnection', $lastConnection, $id);
 
                     header('Content-type:application/json');
                     echo json_encode(array(
@@ -110,6 +120,82 @@ class Admin_hub extends MY_Controller {
 
     }
 
+    public function modifyUserName() {
+
+
+        $rulesArray = array(
+            array(
+                'field' => 'userName',
+                'label' => 'concernant le nouvel identifiant',
+                'rules' => 'trim|required|max_length[50]|callback_username_check'
+            ),
+        );
+
+        $this->form_validation->set_rules($rulesArray);
+
+        if ($this->form_validation->run() === FALSE) {
+
+            $errorsArray = $this->form_validation->get_all_errors();
+
+            header('Content-type:application/json');
+            echo json_encode(array(
+                'error' => $errorsArray
+            ));
+
+        } else {
+
+            $newUsername = $this->input->post('userName');
+            $this->portfolioManager->adminLogsUpdate('admin_name',  $newUsername, $this->session->userdata('id'));
+
+            /* On déconnecte l'utilisateur */
+            $this->session->sess_destroy();
+
+        }
+
+    }
+
+    public function modifyUserPassword() {
+
+
+        $rulesArray = array(
+            array(
+                'field' => 'userPassword',
+                'label' => 'concernant le nouveau mot de passe',
+                'rules' => 'trim|required|max_length[255]|matches[userPasswordConfirm]'
+            ),
+            array(
+                'field' => 'userPasswordConfirm',
+                'label' => 'concernant la confirmation du nouveau mot de passe',
+                'rules' => 'trim|required|max_length[255]'
+            ),
+        );
+
+        $this->form_validation->set_rules($rulesArray);
+
+        if ($this->form_validation->run() === FALSE) {
+
+            $errorsArray = $this->form_validation->get_all_errors();
+
+            header('Content-type:application/json');
+            echo json_encode(array(
+                'error' => $errorsArray
+            ));
+
+        } else {
+
+            /* On récupère le mot de passe envoyé puis on le crypte */
+            $newPassword = $this->input->post('userPassword');
+            $newPasswordCiphered = $this->portfolioManager->cipherPassword($newPassword);
+
+            $this->portfolioManager->adminLogsUpdate('admin_password',  $newPasswordCiphered, $this->session->userdata('id'));
+
+            /* On déconnecte l'utilisateur */
+            $this->session->sess_destroy();
+
+        }
+
+    }
+
     public function adminRecommend() {
 
         // Chargement des CSS
@@ -128,6 +214,20 @@ class Admin_hub extends MY_Controller {
         $this->data['subview'] = 'front_office/admin/admin_recommend';
 
         $this->load->view('components_home/main', $this->data);
+
+    }
+
+    public function username_check($data) {
+
+        $pseudoChecker = $this->portfolioManager->checkExistUser($data);
+        // die(var_dump($pseudoChecker));
+
+        if (!empty($pseudoChecker)) {
+            $this->form_validation->set_message('username_check', 'Cet identifiant existe déjà.');
+            return false;
+        } else {
+            return true;
+        }
 
     }
 
