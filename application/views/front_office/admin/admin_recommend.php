@@ -1,10 +1,10 @@
 <div class="container">
 
-    <a class="go-back justify-content-center align-items-center rounded p-3" href="<?= base_url()?>">
+    <a class="go-back justify-content-center align-items-center rounded p-3" href="<?= base_url() . 'admin'?>">
         <i class="fas fa-arrow-left"></i>
-        <p class="sub-title text-white ml-2 mb-0"> Revenir au hub </p>
+        <p class="sub-title text-white ml-2 mb-0"> Revenir au hub admin </p>
     </a>
-
+    
 </div>
 <section class="bg-sky d-flex align-items-center justify-content-center" id="page-top">
 

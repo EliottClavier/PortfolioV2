@@ -53,16 +53,18 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-
-$route['auth/login'] = 'auth';
-$route['register/attempt'] = 'auth/register';
-$route['login/attempt'] = 'auth/login_attempt';
-$route['logout'] = 'auth/logout';
 /**
  * Formations / Modules
  */
+
 $route['home'] = 'home';
 $route['home/attempt-contact'] = 'home/formContact';
 $route['home/attempt-recommend'] = 'home/formRecommend';
 
 $route['recommend'] = 'recommend';
+
+$route['admin'] = 'admin_hub';
+$route['admin/login-attempt'] = 'admin_hub/login_attempt';
+$route['admin/logout'] = 'admin_hub/logout';
+$route['admin/recommend'] = 'admin_hub/adminRecommend';
+

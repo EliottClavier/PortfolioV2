@@ -16,11 +16,14 @@ class Portfolio_model extends CI_Model
 
     }
 
-    public function getRecommendations() {
+    public function getRecommendations($where = false) {
 
 	    $this->db->select('*')
-            ->from('recommend')
-            ->where('status', 'verified');
+            ->from('recommend');
+
+        if ($where == true) {
+            $this->db->where('status', 'verified');
+        }
 
         $result = $this->db->get();
         return $result->result();

@@ -5,7 +5,7 @@
 
 <body class="landing-page">
 
-<?php if ($subview === 'index') {
+<?php if (($subview === 'index') || (strpos($subview, 'admin'))) {
     // on load rien
 } elseif ($subview === 'front_office/main') {
     $this->load->view('components_home/sidebar');
@@ -15,9 +15,9 @@
 
 <?php $this->load->view($subview) ?>
 
-
-<?php $this->load->view('components_home/footer') ?>
-
+<?php if (!strpos($subview, 'admin')) {
+    $this->load->view('components_home/footer') ;
+} ?>
 
 <?php $this->load->view('components_home/script_js', $js) ?>
 

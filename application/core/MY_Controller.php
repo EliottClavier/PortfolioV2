@@ -3,13 +3,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class MY_Controller extends CI_Controller {
 
+    public $logged = false;
+    public $appli_user = array();
+
 	public function __construct()
 	{
 		parent::__construct();
 
         $this->load->library('layout');
 
+        $this->load->model('admin_model', 'adminManager');
+
+        $this->checkIfLoggedIn();
+
 	}
+
+    public function checkIfLoggedIn() {
+
+        $user = $this->session->userdata('user');
+        $email = $this->session->userdata('email');
+        if($user && $email){
+            $user = $this->adminManager->checkExistUser(array('admin_name' => $user, 'admin_mail' => $email));
+            if($user){
+                $this->appli_user = $user;
+                $this->logged = true;
+            }
+        }
+
+    }
 
 
 }

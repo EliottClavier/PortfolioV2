@@ -71,9 +71,11 @@ h1 {
 }
 
 .bg-white-modern {
-    /* background: rgba(248, 249, 250, 1); */
+    background: rgba(248, 249, 250, 1);
+    /*
     background: rgb(255,255,255);
     background: radial-gradient(circle, rgba(255,255,255,1) 50%, rgba(230,230,230,1) 80%, rgba(210,210,210,1) 100%);
+    */
 }
 
 /* Configuration d'un nouveau type de bouton */
@@ -128,7 +130,7 @@ h1 {
     display: none;
 }
 
-.form-custom {
+.form-custom, .form-admin {
     display: block;
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
@@ -137,11 +139,14 @@ h1 {
     font-weight: 400;
     line-height: 1.5;
     color: #495057;
-    background-color: rgba(248, 249, 250, 1);
-    background-clip: padding-box;
     border: none;
     border-bottom: 1px solid rgba(0,0,0,.5);
     transition: 0.5s;
+}
+
+.form-custom {
+    background-color: rgba(248, 249, 250, 1);
+    background-clip: padding-box;
 }
 
 .form-custom:focus {
@@ -149,8 +154,30 @@ h1 {
     outline: none;
 }
 
+/* Formulaire de connexion admin */
+
+.form-admin {
+    background-color: rgba(248, 249, 250, 0);
+    color: snow;
+}
+
+.form-admin:focus {
+     border-bottom: 1px solid snow;
+     outline: none;
+ }
+
+.form-admin::placeholder {
+    color: snow;
+    opacity: 0.7;
+}
+
+
 .field-error {
     color:  #F27405;
+}
+
+.field-error-admin, .field-error-admin-match {
+    color:  snow;
 }
 
 /* Couleur pour texte white */
@@ -164,8 +191,8 @@ h1 {
 }
 
 /* Changement de la couleur des logos de Font Awesome */
-.fa-times, .fa-angle-up, .fa-bars, .fa-arrow-left {
-     color: white;
+.fa-times, .fa-angle-up, .fa-bars, .fa-arrow-left, .fa-power-off {
+     color: snow;
 }
 
 /* Configuration des sections */
@@ -174,7 +201,7 @@ h1 {
     background-size: cover;
 }
 
-/* Configuration du bouton de déclemenchement de la sidebar */
+/* Configuration des boutons de déclenchement de sidebar ou de redirection */
 .menu-trigger, .go-back {
     display: flex;
     justify-content: center;
@@ -188,7 +215,20 @@ h1 {
     transition: 0.3s;
 }
 
-.menu-trigger {
+.shut-down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 3em;
+    top : 1em;
+    right: 1em;
+    text-align: center;
+    background: rgba(220,53,69,0.7);
+    transition: 0.3s;
+}
+
+.menu-trigger, .shut-down {
     width: 3em;
 }
 
@@ -200,6 +240,11 @@ h1 {
 .menu-trigger:hover, .menu-top:hover, .go-back:hover {
     text-decoration: none;
     background: rgba(5,5,5,0.9);
+}
+
+.shut-down:hover {
+    text-decoration: none;
+    background: rgba(220,53,69,0.9);
 }
 
 .menu-top {
