@@ -298,7 +298,7 @@ h1 {
     transition: left 0.7s ease;
 }
 
-@media only screen and (max-width: 896px) {
+@media only screen and (max-width: 1366px) {
     #sidebar {
         width: 100vw;
         left: -100vw;
@@ -306,14 +306,8 @@ h1 {
 }
 
 #sidebar ul {
-    margin: 5em 1em 0 1em;
+    margin: 5em 1.15em 0 1.15em;
     padding: 0;
-}
-
-@media only screen and (max-width: 896px) {
-    #sidebar ul {
-        margin: auto 0.5em;
-    }
 }
 
 #sidebar ul li {
@@ -321,6 +315,56 @@ h1 {
     font-size: large;
     padding: 1.5em 0;
 }
+
+@media only screen and (min-width: 0px) and (max-width: 768px) and (orientation: portrait) {
+    #sidebar ul {
+        margin: auto 0.5em;
+    }
+
+    #sidebar ul li {
+        list-style: none;
+        font-size: large;
+        padding: 1.25em 0;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    #sidebar ul {
+        margin: auto 0.5em;
+    }
+
+    #sidebar ul li {
+        list-style: none;
+        font-size: large;
+        padding: 2.75em 0;
+    }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 768px) and (orientation: landscape) {
+    #sidebar ul {
+        margin: auto 0.5em;
+    }
+
+    #sidebar ul li {
+        list-style: none;
+        font-size: large;
+        padding: 0.5em 0;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+    #sidebar ul {
+        margin: auto 0.5em;
+    }
+
+    #sidebar ul li {
+        list-style: none;
+        font-size: large;
+        padding:  1.25em;
+    }
+}
+
+
 
 #sidebar ul li:not(:last-child) {
     border-bottom: 1px solid rgba(0,0,0,.2);

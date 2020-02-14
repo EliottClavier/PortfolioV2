@@ -27,7 +27,6 @@ foreach ($recommendations as $recommendation) {
                             <button class="btn btn-dark m-2" data-toggle="modal" data-target="#modalMessageSearch<?= $recommendation->id?>">
                                 Voir le message
                             </button>
-                            <p> <?= $recommendation->message_text?> </p>
                         </div>
 
                         <div class="col-4 text-center">
