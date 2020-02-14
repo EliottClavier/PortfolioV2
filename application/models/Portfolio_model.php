@@ -21,10 +21,10 @@ class Portfolio_model extends CI_Model
 	    $this->db->select('*')
             ->from('recommend');
 
-        if ($where == 'verfied') {
-            $this->db->where('status', 'verified');
-        } elseif ($where == 'pending') {
-            $this->db->where('status', 'pending');
+        if ($where === 'verified') {
+            $this->db->where('status', $where);
+        } elseif ($where === 'pending') {
+            $this->db->where('status', $where);
         }
         $result = $this->db->get();
         return $result->result();
@@ -74,7 +74,7 @@ class Portfolio_model extends CI_Model
     }
 
 
-    public function recommendSelectedMethod ($mode) {
+    public function recommendSelectedMethod($mode = '') {
 
 	    if ($mode === '1') {
             $result = $this->getRecommendations();

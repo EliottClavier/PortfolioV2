@@ -5,8 +5,13 @@
 }
 
 
-section {
+section:not([name="section-admin"]) {
     padding: 8.5rem 0;
+    min-height: 100vh;
+}
+
+section[name="section-admin"] {
+    padding: 5rem 0;
     min-height: 100vh;
 }
 

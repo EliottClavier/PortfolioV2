@@ -9,7 +9,7 @@
 
 </div>
 
-<section class="bg-sky d-flex align-items-center justify-content-center" id="page-top">
+<section class="bg-sky d-flex align-items-center justify-content-center" id="page-top" name="section-admin">
 
     <div class="container">
 
@@ -20,13 +20,13 @@
                 <div class="col-xs-11 col-sm-10 col-md-8 col-lg-7">
                     <div class="input-group mb-3">
 
-                            <label for="selectOrder"></label>
-                            <select class="custom-select select-order" name="selectOrder" id="selectOrder">
-                                <option selected> Ordre par ID </option>
-                                <option value="1"> Ordre aléatoire </option>
-                                <option value="2"> Seulement en attente </option>
-                                <option value="3"> Seulement validé </option>
-                            </select>
+                        <label for="selectOrder"></label>
+                        <select class="custom-select select-order" name="selectOrder" id="selectOrder">
+                            <option selected> Ordre par ID </option>
+                            <option value="1"> Ordre aléatoire </option>
+                            <option value="2"> Seulement en attente </option>
+                            <option value="3"> Seulement validé </option>
+                        </select>
 
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                             <div class="col-3">
                                 <h1 class="sub-title text-left"> <?= '#' . $recommendation->id ?> </h1>
                             </div>
-                            <div class="col-6">
+                            <div class="col-8 text-center">
                                 <h1 class="sub-title text-center"> <?= 'Avis de  ' . $recommendation->first_name . ' ' . $recommendation->name ?> </h1>
                             </div>
 

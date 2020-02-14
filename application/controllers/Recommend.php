@@ -27,7 +27,7 @@ class Recommend extends MY_Controller {
         */
 
 
-        $this->data['recommendations'] = $this->portfolioManager->getRecommendations(true);
+        $this->data['recommendations'] = $this->portfolioManager->getRecommendations();
 
         // die(var_dump($this->data['recommendations']));
 

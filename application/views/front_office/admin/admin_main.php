@@ -1,4 +1,4 @@
-<section class="bg-sky d-flex align-items-center justify-content-center" id="page-top">
+<section class="bg-sky d-flex align-items-center justify-content-center" name="section-admin">
 
     <?php if(!$this->session->userdata('user')) { ?>
 
@@ -90,6 +90,7 @@
                            Modifications du compte <?= $this->session->userdata('user') ?>
                         </h1>
                     </div>
+
                     <div class="card-body">
                         <button class="btn btn-dark btn-update-user-id m-2" data-toggle="modal" data-target="#modalUpdateUserName">
                             Changer son identifiant
@@ -98,6 +99,13 @@
                             Changer son mot de passe
                         </button>
                     </div>
+
+                    <div class="card-body">
+                        <a class="btn btn-primary btn-lg "  href="<?= base_url() ?>">
+                            Retour vers l'acceuil
+                        </a>
+                    </div>
+
                     <div class="card-footer">
                         <p class="text-dark"> <?= 'Dernière connexion le ' . $this->session->userdata('lastConnection') ?> </p>
                     </div>
@@ -196,7 +204,7 @@
 
                         <p class="sub-title card-text"> <span class="badge badge-danger"> <?= $pending->total ?> </span> recommendations en attentes </p>
                         <p class="sub-title card-text"> <span class="badge badge-primary"> <?= $verified->total ?> </span> recommendations visibles </p>
-                        <a href="<?= base_url() . 'admin/recommend' ?>" class="btn btn-dark"> Panneau de modification des recommandations </a>
+                        <a href="<?= base_url() . 'admin/recommend' ?>" class="btn btn-dark"> Panneau d'activation des recommandations </a>
                     </div>
                 </div>
             </div>
@@ -212,6 +220,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
     <?php } ?>

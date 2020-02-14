@@ -209,8 +209,7 @@ class Admin_hub extends MY_Controller {
             'assets/js/admin/admin_recommend',
         ));
 
-        $this->data['recommendations'] = $this->portfolioManager->getRecommendations();
-        shuffle($this->data['recommendations']);
+        $this->data['recommendations'] = $this->portfolioManager->recommendSelectedMethod();
 
         $this->data['subview'] = 'front_office/admin/admin_recommend';
 

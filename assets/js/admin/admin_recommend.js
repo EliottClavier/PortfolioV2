@@ -50,4 +50,3 @@ $('select.select-order').change(function(){
 
         }});
 });
-

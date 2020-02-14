@@ -1,5 +1,6 @@
 <?php
-foreach ($recommendations as $recommendation) { ?>
+foreach ($recommendations as $recommendation) {
+?>
     <div class="col-xl-6 my-3">
 
         <div class="card">
@@ -23,9 +24,10 @@ foreach ($recommendations as $recommendation) { ?>
                     <div class="row justify-content-center align-items-center">
 
                         <div class="col-8 text-center">
-                            <button class="btn btn-dark m-2" data-toggle="modal" data-target="#modalMessageSearch">
+                            <button class="btn btn-dark m-2" data-toggle="modal" data-target="#modalMessageSearch<?= $recommendation->id?>">
                                 Voir le message
                             </button>
+                            <p> <?= $recommendation->message_text?> </p>
                         </div>
 
                         <div class="col-4 text-center">
@@ -47,6 +49,7 @@ foreach ($recommendations as $recommendation) { ?>
                         </div>
 
                     </div>
+
                 </div>
             </div>
 
@@ -57,7 +60,7 @@ foreach ($recommendations as $recommendation) { ?>
         </div>
 
         <!-- Modal Message -->
-        <div class="modal fade" id="modalMessageSearch" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="modalMessageSearch<?= $recommendation->id?>" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
 
