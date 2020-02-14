@@ -14,12 +14,12 @@
 
                 <div class="row form-group justify-content-center">
 
-                    <div class="col-7 m-2">
+                    <div class="col-xs-11 col-sm-10 col-md-8 col-lg-7 mt-2">
 
                         <div>
 
                             <label class="invisible" for="loginID"></label>
-                            <input type="text" class="form-admin" name="loginID" id="loginID" placeholder="Identifiant" >
+                            <input type="text" class="form-admin" name="loginID" id="loginID" placeholder="Identifiant">
                             <p class="field-error-admin" data-field="loginID"></p>
                         </div>
 
@@ -30,12 +30,12 @@
 
                 <div class="row form-group justify-content-center">
 
-                    <div class="col-7 m-2">
+                    <div class="col-xs-11 col-sm-10 col-md-8 col-lg-7 mt-2">
 
                         <div>
 
                             <label class="invisible" for="loginPassword"></label>
-                            <input type="password" class="form-admin" name="loginPassword" id="loginPassword" placeholder="Mot de passe" >
+                            <input type="password" class="form-admin" name="loginPassword" id="loginPassword" placeholder="Mot de passe">
                             <p class="field-error-admin" data-field="loginPassword"></p>
 
                         </div>
@@ -56,9 +56,9 @@
 
                 <div class="row form-group text-center justify-content-center">
 
-                    <div class="col-xl-7 m-2">
+                    <div class="col-xl-7">
 
-                        <a class="btn btn-outline-dark btn-lg"  href="<?= base_url() ?>">
+                        <a class="btn btn-outline-dark btn-lg m-2"  href="<?= base_url() ?>">
                             Retour à l'accueil
                         </a>
 
@@ -193,8 +193,9 @@
                             <h1 class="card-title sub-title">
                                 Mur des recommandations
                             </h1>
-                        <p class="card-text"> 36 recommendations en attentes </p>
-                        <p class="card-text"> 16 recommendations visibles </p>
+
+                        <p class="sub-title card-text"> <span class="badge badge-danger"> <?= $pending->total ?> </span> recommendations en attentes </p>
+                        <p class="sub-title card-text"> <span class="badge badge-primary"> <?= $verified->total ?> </span> recommendations visibles </p>
                         <a href="<?= base_url() . 'admin/recommend' ?>" class="btn btn-dark"> Panneau de modification des recommandations </a>
                     </div>
                 </div>
@@ -206,7 +207,7 @@
                         <h1 class="card-title sub-title">
                             Section projet
                         </h1>
-                        <p class="card-text"> 5 projets sont actuellement affichés sur le site </p>
+                        <p class="sub-title card-text"> <span class="badge badge-secondary"> 5 </span> projets sont actuellement affichés sur le site </p>
                         <a href="<?= base_url() . 'admin/project' ?>" class="btn btn-dark"> Panneau de modification des projets </a>
                     </div>
                 </div>

@@ -63,9 +63,14 @@ $route['attempt-recommend'] = 'home/formRecommend';
 $route['recommend'] = 'recommend';
 
 $route['admin'] = 'admin_hub/index';
+
 $route['admin/login-attempt'] = 'admin_hub/login_attempt';
 $route['admin/logout'] = 'admin_hub/logout';
+
 $route['admin/update-username-attempt'] = 'admin_hub/modifyUserName';
 $route['admin/update-password-attempt'] = 'admin_hub/modifyUserPassword';
+
 $route['admin/recommend'] = 'admin_hub/adminRecommend';
+$route['admin/recommend-switch-status'] = 'admin_hub/adminRecommendSwitchStatus';
+$route['admin/recommend-select-order'] = 'admin_hub/adminRecommendGetOrder';
 

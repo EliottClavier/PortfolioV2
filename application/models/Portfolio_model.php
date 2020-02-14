@@ -16,25 +16,26 @@ class Portfolio_model extends CI_Model
 
     }
 
-    public function getRecommendations($where = false) {
+    public function getRecommendations($where = '') {
 
 	    $this->db->select('*')
             ->from('recommend');
 
-        if ($where == true) {
+        if ($where == 'verfied') {
             $this->db->where('status', 'verified');
+        } elseif ($where == 'pending') {
+            $this->db->where('status', 'pending');
         }
-
         $result = $this->db->get();
         return $result->result();
 
     }
 
-    public function adminLogsUpdate($columnName, $data, $id) {
+    public function adminUpdate($columnName, $data, $id, $table) {
 
         $this->db->set($columnName, $data)
         ->where('id', $id)
-        ->update('admin_logs');
+        ->update($table);
 
     }
 
@@ -61,6 +62,31 @@ class Portfolio_model extends CI_Model
 
         return $cipherPassword;
 
+    }
+
+    public function adminCountRecommend($type) {
+        $query = $this->db->select('status, count(*) AS total')
+            ->from('recommend')
+            ->like('status', $type)
+            ->get();
+        return $query->row();
+
+    }
+
+
+    public function recommendSelectedMethod ($mode) {
+
+	    if ($mode === '1') {
+            $result = $this->getRecommendations();
+            shuffle($result);
+            return $result;
+        } elseif ($mode === '2') {
+            return $this->getRecommendations('pending');
+        } elseif ($mode === '3') {
+            return $this->getRecommendations('verified');
+        } else {
+            return $this->getRecommendations();
+        }
     }
 
 }

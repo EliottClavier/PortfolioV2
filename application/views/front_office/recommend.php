@@ -12,9 +12,11 @@
 
         <h1 class="title text-white text-center"> Mur des recommendations </h1>
 
-        <div class="row justify-content-around my-5 align-items-center">
+        <div class="search-false row justify-content-around my-5 align-items-center">
 
-            <?php foreach ($recommendations as $recommendation) { ?>
+            <?php
+            shuffle($recommendations);
+            foreach ($recommendations as $recommendation) { ?>
             <div class="col-xl-6 my-3">
 
                 <div class="card">
@@ -22,10 +24,10 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col-3">
-                            <h1 class="sub-title text-left"> <?= '#' . $recommendation->id ?> </h1>
+                                <h1 class="sub-title text-left"> <?= '#' . $recommendation->id ?> </h1>
                             </div>
                             <div class="col-6">
-                            <h1 class="sub-title text-center"> <?= 'Avis de  ' . $recommendation->first_name . ' ' . $recommendation->name ?> </h1>
+                                <h1 class="sub-title text-center"> <?= 'Avis de  ' . $recommendation->first_name . ' ' . $recommendation->name ?> </h1>
                             </div>
                         </div>
 

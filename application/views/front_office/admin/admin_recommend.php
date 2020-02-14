@@ -6,17 +6,36 @@
         <i class="fas fa-arrow-left"></i>
         <p class="sub-title text-white ml-2 mb-0"> Revenir au hub admin </p>
     </a>
-    
+
 </div>
+
 <section class="bg-sky d-flex align-items-center justify-content-center" id="page-top">
 
     <div class="container">
 
         <h1 class="title text-white text-center"> Mur des recommendations </h1>
 
-        <div class="row justify-content-around my-5 align-items-center">
+        <form class="form-select-order">
+            <div class="row justify-content-center">
+                <div class="col-xs-11 col-sm-10 col-md-8 col-lg-7">
+                    <div class="input-group mb-3">
 
-            <?php foreach ($recommendations as $recommendation) { ?>
+                            <label for="selectOrder"></label>
+                            <select class="custom-select select-order" name="selectOrder" id="selectOrder">
+                                <option selected> Ordre par ID </option>
+                                <option value="1"> Ordre aléatoire </option>
+                                <option value="2"> Seulement en attente </option>
+                                <option value="3"> Seulement validé </option>
+                            </select>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="search-false row justify-content-around my-5 align-items-center">
+
+            <?php
+            foreach ($recommendations as $recommendation) { ?>
             <div class="col-xl-6 my-3">
 
                 <div class="card">
@@ -29,24 +48,42 @@
                             <div class="col-6">
                                 <h1 class="sub-title text-center"> <?= 'Avis de  ' . $recommendation->first_name . ' ' . $recommendation->name ?> </h1>
                             </div>
-                            <div class="col-2 text-center">
 
-                                <?php if ($recommendation->status === 'verified') { ?>
-                                    <i class="fas fa-power-off fa-lg" style="color: #212529"></i>
-                                <?php } ?>
-
-                                <?php if ($recommendation->status === 'pending') { ?>
-                                <i class="fas fa-power-off fa-lg" style="color: #212529"></i>
-                                <?php } ?>
-
-                            </div>
                         </div>
 
-                        <p class="sub-title text-center">  <?= 'Ayant collaboré du ' . $recommendation->date_start . ' au ' . $recommendation->date_end ?> </p>
                     </div>
 
                     <div class="card-body">
-                        <p class="card-text text-justify"> <?= $recommendation->message_text ?> </p>
+
+                        <div class="container">
+                        <div class="row justify-content-center align-items-center">
+
+                            <div class="col-8 text-center">
+                                <button class="btn btn-dark m-2" data-toggle="modal" data-target="#modalMessage">
+                                    Voir le message
+                                </button>
+                            </div>
+
+                            <div class="col-4 text-center">
+
+                                <?php if ($recommendation->status === 'verified') { ?>
+                                    <label class="switch">
+                                        <input class="slider-change" type="checkbox" value=<?= $recommendation->id ?> checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                <?php } ?>
+
+                                <?php if ($recommendation->status === 'pending') { ?>
+                                    <label class="switch">
+                                        <input class="slider-change" type="checkbox" value=<?= $recommendation->id ?>>
+                                        <span class="slider round"></span>
+                                    </label>
+                                <?php } ?>
+
+                            </div>
+
+                        </div>
+                        </div>
                     </div>
 
                     <div class="card-footer text-muted text-center">
@@ -55,9 +92,43 @@
 
                 </div>
 
+                <!-- Modal Message -->
+                <div class="modal fade" id="modalMessage" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-body justify-content-center">
+
+                                <div class="row justify-content-center">
+
+                                    <div class="col-11">
+                                        <p class="card-text text-justify"> <?= $recommendation->message_text ?> </p>
+                                    </div>
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <h1 class="sub-title text-center">  <?= 'Collaboration du ' . $recommendation->date_start . ' au ' . $recommendation->date_end ?> </h1>
+                                    <button type="button" class="btn btn-dark" data-dismiss="modal"> Fermer </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
             <?php } ?>
+
+        </div>
+
+        <div class="search-true row justify-content-around my-5 align-items-center">
+
+            <!-- EMPLACEMENT POUR LE CHARGEMENT DE LA VUE DE TRI (admin_recommend_search) -->
 
         </div>
 

@@ -87,4 +87,3 @@ $('button.btn-recommend-send').on('click', function() {
     });
 
 });
-

@@ -27,6 +27,8 @@ class Admin_hub extends MY_Controller {
 
 
         $this->data['subview'] = 'front_office/admin/admin_main';
+        $this->data['pending'] = $this->portfolioManager->adminCountRecommend("pending");
+        $this->data['verified'] = $this->portfolioManager->adminCountRecommend("verified");
 
         $this->load->view('components_home/main', $this->data);
 
@@ -92,7 +94,7 @@ class Admin_hub extends MY_Controller {
                     /* Changement de la dernière date de connection */
                     $lastConnection = date("Y-m-d H:i:s");
 
-                    $this->portfolioManager->adminLogsUpdate('lastConnection', $lastConnection, $id);
+                    $this->portfolioManager->adminUpdate('lastConnection', $lastConnection, $id, 'admin_logs');
 
                     header('Content-type:application/json');
                     echo json_encode(array(
@@ -117,11 +119,9 @@ class Admin_hub extends MY_Controller {
             }
         }
 
-
     }
 
     public function modifyUserName() {
-
 
         $rulesArray = array(
             array(
@@ -145,7 +145,7 @@ class Admin_hub extends MY_Controller {
         } else {
 
             $newUsername = $this->input->post('userName');
-            $this->portfolioManager->adminLogsUpdate('admin_name',  $newUsername, $this->session->userdata('id'));
+            $this->portfolioManager->adminUpdate('admin_name',  $newUsername, $this->session->userdata('id'), 'admin_logs');
 
             /* On déconnecte l'utilisateur */
             $this->session->sess_destroy();
@@ -155,7 +155,6 @@ class Admin_hub extends MY_Controller {
     }
 
     public function modifyUserPassword() {
-
 
         $rulesArray = array(
             array(
@@ -187,7 +186,7 @@ class Admin_hub extends MY_Controller {
             $newPassword = $this->input->post('userPassword');
             $newPasswordCiphered = $this->portfolioManager->cipherPassword($newPassword);
 
-            $this->portfolioManager->adminLogsUpdate('admin_password',  $newPasswordCiphered, $this->session->userdata('id'));
+            $this->portfolioManager->adminUpdate('admin_password',  $newPasswordCiphered, $this->session->userdata('id'), 'admin_logs');
 
             /* On déconnecte l'utilisateur */
             $this->session->sess_destroy();
@@ -207,9 +206,11 @@ class Admin_hub extends MY_Controller {
         $this->data['js'] = $this->layout->add_js(array(
             'assets/plugins/jquery-3.3.1.min',
             'assets/plugins/bootstrap/js/bootstrap.min',
+            'assets/js/admin/admin_recommend',
         ));
 
         $this->data['recommendations'] = $this->portfolioManager->getRecommendations();
+        shuffle($this->data['recommendations']);
 
         $this->data['subview'] = 'front_office/admin/admin_recommend';
 
@@ -217,6 +218,29 @@ class Admin_hub extends MY_Controller {
 
     }
 
+    public function adminRecommendSwitchStatus() {
+
+        $newStatus = $this->input->post('status');
+        $id = $this->input->post('id');
+        $this->portfolioManager->adminUpdate('status', $newStatus, $id, 'recommend');
+
+    }
+
+    public function adminRecommendGetOrder() {
+
+        $mode = $this->input->post('selectOrder');
+        $this->data['recommendations'] = $this->portfolioManager->recommendSelectedMethod($mode);
+
+        $view = $this->load->view('front_office/admin/admin_recommend_search', $this->data, true);
+
+        header('Content-type:application/json');
+        echo json_encode(array(
+            'view' => $view
+        ));
+
+    }
+
+    // Fonction callback
     public function username_check($data) {
 
         $pseudoChecker = $this->portfolioManager->checkExistUser($data);
