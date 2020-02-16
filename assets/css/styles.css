@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding : 0;
@@ -16,14 +15,12 @@ section[name="section-admin"] {
 }
 
 @media only screen and (max-width: 896px) {
-
-    section {
-        padding: 4rem 0;
-        min-height: 100vh;
+    section:not([name="section-admin"]) {
+        padding: 5rem 0;
     }
 }
 
-a, li, p, h2, button {
+a, li, p, h2, button, small {
     text-decoration: none;
     font-family: 'Esteban', serif;
 }
@@ -60,7 +57,10 @@ h1 {
 }
 
 .bg-deep {
-    background-color : #023859;
+    background: #000428;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .bg-flash {
@@ -81,6 +81,17 @@ h1 {
     background: rgb(255,255,255);
     background: radial-gradient(circle, rgba(255,255,255,1) 50%, rgba(230,230,230,1) 80%, rgba(210,210,210,1) 100%);
     */
+}
+.bg-recommend {
+    background: #9CECFB;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #0052D4, #65C7F7, #9CECFB);
+    background: linear-gradient(to bottom, #0052D4, #65C7F7, #9CECFB);
+
+    /*
+    background: rgb(255,255,255);
+    background: radial-gradient(#f0cb35, #C02425);
+    */
+
 }
 
 /* Configuration d'un nouveau type de bouton */
@@ -121,13 +132,22 @@ h1 {
 .btn-xl {
     font-size: 4vh;
     padding: 0.35em 0.75em;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 992px) and (orientation: portrait) {
     .btn-xl {
         font-size: 3vh;
         padding: 0.2em 0.5em;
+        border-radius: 5px;
+    }
+}
+
+@media only screen and (max-width: 992px) and (orientation: landscape) {
+    .btn-xl {
+        font-size: 3vw;
+        padding: 0.2em 0.5em;
+        border-radius: 5px;
     }
 }
 
@@ -282,12 +302,12 @@ h1 {
 #sidebar {
     display: flex;
     justify-content: center;
-    width: 350px;
+    width: 30vw;
     background: rgba(237,237,237,1);
     position: fixed;
     min-height: 100%;
     top: 0;
-    left: -350px;
+    left: -30vw;
     transition: left 0.5s ease;
     z-index: 1;
 }
@@ -312,55 +332,50 @@ h1 {
 
 #sidebar ul li {
     list-style: none;
-    font-size: large;
-    padding: 1.5em 0;
+    padding: 3vh 0;
 }
 
 @media only screen and (min-width: 0px) and (max-width: 768px) and (orientation: portrait) {
     #sidebar ul {
-        margin: auto 0.5em;
+        margin: auto 0.5vh;
     }
 
     #sidebar ul li {
         list-style: none;
-        font-size: large;
-        padding: 1.25em 0;
+        padding: 3vh 0;
     }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
     #sidebar ul {
-        margin: auto 0.5em;
+        margin: auto 0.5vh;
     }
 
     #sidebar ul li {
         list-style: none;
-        font-size: large;
-        padding: 2.75em 0;
+        padding: 2.75vh 0;
     }
 }
 
 @media only screen and (min-width: 0px) and (max-width: 768px) and (orientation: landscape) {
     #sidebar ul {
-        margin: auto 0.5em;
+        margin: auto 0.5vw;
     }
 
     #sidebar ul li {
         list-style: none;
-        font-size: large;
-        padding: 0.5em 0;
+        padding: 1.5vw 0;
     }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
     #sidebar ul {
-        margin: auto 0.5em;
+        margin: auto 0.5vw;
     }
 
     #sidebar ul li {
         list-style: none;
-        font-size: large;
-        padding:  1.25em;
+        padding:  1.25vw;
     }
 }
 
@@ -385,7 +400,6 @@ h1 {
 #page-content {
     flex: 1 0 auto;
 }
-
 #sticky-footer {
     flex-shrink: none;
 }
@@ -401,6 +415,25 @@ h1 {
     font-size: 4vh;
 }
 
+@media only screen and (max-width: 896px) and (orientation: portrait) {
+    .main-title {
+        font-size: 8vh;
+    }
+
+    .main-sub-title {
+        font-size: 3vh;
+    }
+}
+
+@media only screen and (max-width: 896px) and (orientation: landscape) {
+    .main-title {
+        font-size: 8vw;
+    }
+
+    .main-sub-title {
+        font-size: 3vw;
+    }
+}
 
 /* Titres (reste de la page) */
 .title {
@@ -411,6 +444,9 @@ h1 {
     font-size: 3vh;
 }
 
+.text {
+    font-size: 2.25vh;
+}
 
 @media only screen and (max-width: 896px) and (orientation: portrait) {
     .title {
@@ -420,7 +456,26 @@ h1 {
     .sub-title {
         font-size: 2.5vh;
     }
+    .text {
+        font-size: 2vh;
+    }
 }
+
+@media only screen and (max-width: 896px) and (orientation: landscape) {
+    .title {
+        font-size: 5vw;
+    }
+
+    .sub-title {
+        font-size: 2.5vw;
+    }
+
+    .text {
+        font-size: 2vw;
+    }
+
+}
+
 
 
 /* Image de profil */

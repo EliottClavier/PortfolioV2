@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container-fluid">
 
-    <div id="sidebar">
+    <div id="sidebar" class="align-items-center">
 
         <ul>
             <li><a class="js-scrollTo sub-title" href="#page-about-me"> Qui suis-je ? </a></li>

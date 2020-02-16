@@ -6,18 +6,17 @@
 
             <div class="row justify-content-center text-white">
 
-                <hi class="title"> Panel Administratif </hi>
+                <p class="title"> Panel Administratif </p>
 
             </div>
 
             <form class="form-admin-login">
 
-                <div class="row form-group justify-content-center">
+                <div class="row justify-content-center">
 
                     <div class="col-xs-11 col-sm-10 col-md-8 col-lg-7 mt-2">
 
                         <div>
-
                             <label class="invisible" for="loginID"></label>
                             <input type="text" class="form-admin" name="loginID" id="loginID" placeholder="Identifiant">
                             <p class="field-error-admin" data-field="loginID"></p>
@@ -28,7 +27,7 @@
                 </div>
 
 
-                <div class="row form-group justify-content-center">
+                <div class="row justify-content-center">
 
                     <div class="col-xs-11 col-sm-10 col-md-8 col-lg-7 mt-2">
 
@@ -80,11 +79,11 @@
     <?php if($this->session->userdata('user')) { ?>
 
 
-    <div class="container">
+    <div class="container-fluid m-3">
         <div class="row text-center justify-content-center align-items-center">
 
-            <div class="col-sm-8 my-3">
-                <div class="card">
+            <div class="col-xl-6 col-lg-10 col-md-10 col-sm-10 my-3">
+                <div class="card p-3">
                     <div class="card-header">
                         <h1 class="card-title sub-title">
                            Modifications du compte <?= $this->session->userdata('user') ?>
@@ -92,22 +91,23 @@
                     </div>
 
                     <div class="card-body">
-                        <button class="btn btn-dark btn-update-user-id m-2" data-toggle="modal" data-target="#modalUpdateUserName">
-                            Changer son identifiant
-                        </button>
-                        <button class="btn btn-dark btn-update-user-password m-2" data-toggle="modal" data-target="#modalUpdateUserPassword">
-                            Changer son mot de passe
-                        </button>
-                    </div>
-
-                    <div class="card-body">
-                        <a class="btn btn-primary btn-lg "  href="<?= base_url() ?>">
-                            Retour vers l'acceuil
-                        </a>
+                        <div class="row justify-content-center">
+                            <button class="btn btn-dark btn-update-user-id text m-2" data-toggle="modal" data-target="#modalUpdateUserName">
+                                Changer son identifiant
+                            </button>
+                            <button class="btn btn-dark btn-update-user-password text m-2" data-toggle="modal" data-target="#modalUpdateUserPassword">
+                                Changer son mot de passe
+                            </button>
+                        </div>
+                        <div class="row justify-content-center">
+                            <a class="btn btn-primary btn-lg text"  href="<?= base_url() ?>">
+                                Retour vers l'acceuil
+                            </a>
+                        </div>
                     </div>
 
                     <div class="card-footer">
-                        <p class="text-dark"> <?= 'Dernière connexion le ' . $this->session->userdata('lastConnection') ?> </p>
+                        <p class="text text-dark"> <?= 'Dernière connexion le ' . $this->session->userdata('lastConnection') ?> </p>
                     </div>
                 </div>
 
@@ -123,7 +123,7 @@
                                     <div class="row justify-content-center">
 
                                         <div class="col-11">
-                                            <h1 class="form-custom sub-title"> <?= 'Identifiant actuel : ' . $this->session->userdata('user')?> </h1>
+                                            <h1 class="form-custom text"> <?= 'Identifiant actuel : ' . $this->session->userdata('user')?> </h1>
                                         </div>
 
                                         <div class="col-11">
@@ -195,28 +195,36 @@
 
 
         <div class="row text-center justify-content-center align-items-center">
-            <div class="col-sm-6 my-3">
-                <div class="card">
-                    <div class="card-body">
-                            <h1 class="card-title sub-title">
-                                Mur des recommandations
-                            </h1>
+            <div class="col-xl-6 col-lg-10 col-md-10 col-sm-10 my-3">
+                <div class="card p-3">
 
-                        <p class="sub-title card-text"> <span class="badge badge-danger"> <?= $pending->total ?> </span> recommendations en attentes </p>
-                        <p class="sub-title card-text"> <span class="badge badge-primary"> <?= $verified->total ?> </span> recommendations visibles </p>
-                        <a href="<?= base_url() . 'admin/recommend' ?>" class="btn btn-dark"> Panneau d'activation des recommandations </a>
+                    <div class="card-header">
+                        <h1 class="card-title sub-title">
+                            Mur des recommandations
+                        </h1>
+                    </div>
+
+                    <div class="card-body">
+
+                        <p class="text card-text"> <span class="badge badge-danger"> <?= $pending->total ?> </span> recommendations en attentes </p>
+                        <p class="text card-text"> <span class="badge badge-primary"> <?= $verified->total ?> </span> recommendations visibles </p>
+                        <a href="<?= base_url() . 'admin/recommend' ?>" class="btn btn-dark text"> Panneau d'activation des recommandations </a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-sm-6 my-3">
-                <div class="card">
-                    <div class="card-body">
+            <div class="col-xl-6 col-lg-10 col-md-10 col-sm-10 my-3">
+                <div class="card p-3">
+                    <div class="card-header">
                         <h1 class="card-title sub-title">
                             Section projet
                         </h1>
-                        <p class="sub-title card-text"> <span class="badge badge-secondary"> 5 </span> projets sont actuellement affichés sur le site </p>
-                        <a href="<?= base_url() . 'admin/project' ?>" class="btn btn-dark"> Panneau de modification des projets </a>
+                    </div>
+
+                    <div class="card-body">
+
+                        <p class="text card-text"> <span class="badge badge-secondary"> 5 </span> projets sont actuellement affichés sur le site </p>
+                        <a href="<?= base_url() . 'admin/project' ?>" class="btn btn-dark text"> Panneau de modification des projets </a>
                     </div>
                 </div>
             </div>
