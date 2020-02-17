@@ -25,10 +25,12 @@ class Admin_hub extends MY_Controller {
             'assets/js/admin/admin_update_user_data',
         ));
 
+        /* On compte le nombre de recommandations et de projets présents sur le site pour l'afficher sur le panel */
+        $this->data['recommend_pending'] = $this->adminManager->adminCountRecommend("pending");
+        $this->data['recommend_verified'] = $this->adminManager->adminCountRecommend("verified");
+        $this->data['project_total'] = $this->adminManager->adminCountProject();
 
         $this->data['subview'] = 'front_office/admin/admin_main';
-        $this->data['pending'] = $this->portfolioManager->adminCountRecommend("pending");
-        $this->data['verified'] = $this->portfolioManager->adminCountRecommend("verified");
 
         $this->load->view('components_home/main', $this->data);
 
@@ -94,7 +96,7 @@ class Admin_hub extends MY_Controller {
                     /* Changement de la dernière date de connection */
                     $lastConnection = date("Y-m-d H:i:s");
 
-                    $this->portfolioManager->adminUpdate('lastConnection', $lastConnection, $id, 'admin_logs');
+                    $this->adminManager->adminUpdate('lastConnection', $lastConnection, $id, 'admin_logs');
 
                     header('Content-type:application/json');
                     echo json_encode(array(
@@ -107,8 +109,6 @@ class Admin_hub extends MY_Controller {
                         'error' => 'Pseudo ou Mot de passe incorrect'
                     ));
                 }
-
-
 
             } else {
 
@@ -145,7 +145,7 @@ class Admin_hub extends MY_Controller {
         } else {
 
             $newUsername = $this->input->post('userName');
-            $this->portfolioManager->adminUpdate('admin_name',  $newUsername, $this->session->userdata('id'), 'admin_logs');
+            $this->adminManager->adminUpdate('admin_name',  $newUsername, $this->session->userdata('id'), 'admin_logs');
 
             /* On déconnecte l'utilisateur */
             $this->session->sess_destroy();
@@ -186,7 +186,7 @@ class Admin_hub extends MY_Controller {
             $newPassword = $this->input->post('userPassword');
             $newPasswordCiphered = $this->portfolioManager->cipherPassword($newPassword);
 
-            $this->portfolioManager->adminUpdate('admin_password',  $newPasswordCiphered, $this->session->userdata('id'), 'admin_logs');
+            $this->adminManager->adminUpdate('admin_password',  $newPasswordCiphered, $this->session->userdata('id'), 'admin_logs');
 
             /* On déconnecte l'utilisateur */
             $this->session->sess_destroy();
@@ -221,7 +221,7 @@ class Admin_hub extends MY_Controller {
 
         $newStatus = $this->input->post('status');
         $id = $this->input->post('id');
-        $this->portfolioManager->adminUpdate('status', $newStatus, $id, 'recommend');
+        $this->adminManager->adminUpdate('status', $newStatus, $id, 'recommend');
 
     }
 
@@ -239,7 +239,30 @@ class Admin_hub extends MY_Controller {
 
     }
 
-    // Fonction callback
+    public function adminProject() {
+
+        // Chargement des CSS
+        $this->data['css'] = $this->layout->add_css(array(
+            'assets/plugins/bootstrap/css/bootstrap.min',
+            'assets/css/styles'
+        ));
+        // Chargement des JS
+        $this->data['js'] = $this->layout->add_js(array(
+            'assets/plugins/jquery-3.3.1.min',
+            'assets/plugins/bootstrap/js/bootstrap.min',
+            'assets/js/admin/admin_recommend',
+        ));
+
+        $this->data['projects'] = $this->portfolioManager->getProjects('completed');
+
+        $this->data['subview'] = 'front_office/admin/admin_project';
+
+        $this->load->view('components_home/main', $this->data);
+    }
+
+
+
+    /* Fonction callback */
     public function username_check($data) {
 
         $pseudoChecker = $this->portfolioManager->checkExistUser($data);

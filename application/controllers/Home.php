@@ -23,6 +23,11 @@ class Home extends MY_Controller {
             'assets/js/main_form',
         ));
 
+        /* Sélection au hasard d'un projet sur toutes les valeurs disponibles */
+        $projects = $this->portfolioManager->getProjects();
+        $random = array_rand($projects);
+        $this->data['random_project'] = $projects[$random];
+
         $this->data['subview'] = 'index';
 
         $this->load->view('components_home/main', $this->data);

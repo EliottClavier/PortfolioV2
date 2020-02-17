@@ -38,10 +38,6 @@
             <i class="fas fa-bars fa-sm"></i>
         </span>
 
-        <a class="js-scrollTo menu-top justify-content-center align-items-center rounded" href="#page-top" style="display: none">
-            <i class="fas fa-angle-up fa-sm"></i>
-        </a>
-
     </div>
 
 </div>

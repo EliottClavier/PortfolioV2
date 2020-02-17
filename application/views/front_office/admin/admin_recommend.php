@@ -9,7 +9,7 @@
 
 </div>
 
-<section class="bg-recommend d-flex justify-content-center align-items-center" name="section-admin">
+<section class="bg-extern d-flex justify-content-center align-items-center" name="section-admin">
 
     <div class="container-fluid m-2">
 

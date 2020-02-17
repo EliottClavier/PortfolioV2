@@ -206,8 +206,8 @@
 
                     <div class="card-body">
 
-                        <p class="text card-text"> <span class="badge badge-danger"> <?= $pending->total ?> </span> recommendations en attentes </p>
-                        <p class="text card-text"> <span class="badge badge-primary"> <?= $verified->total ?> </span> recommendations visibles </p>
+                        <p class="text card-text"> <span class="badge badge-danger"> <?= $recommend_pending->total ?> </span> recommendations en attentes </p>
+                        <p class="text card-text"> <span class="badge badge-primary"> <?= $recommend_verified->total ?> </span> recommendations visibles </p>
                         <a href="<?= base_url() . 'admin/recommend' ?>" class="btn btn-dark text"> Panneau d'activation des recommandations </a>
                     </div>
                 </div>
@@ -223,7 +223,7 @@
 
                     <div class="card-body">
 
-                        <p class="text card-text"> <span class="badge badge-secondary"> 5 </span> projets sont actuellement affichés sur le site </p>
+                        <p class="text card-text"> <span class="badge badge-secondary"> <?= $project_total->total ?> </span> projets sont actuellement affichés sur le site </p>
                         <a href="<?= base_url() . 'admin/project' ?>" class="btn btn-dark text"> Panneau de modification des projets </a>
                     </div>
                 </div>

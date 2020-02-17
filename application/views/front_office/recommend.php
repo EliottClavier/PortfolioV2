@@ -1,12 +1,11 @@
 <div class="container-fluid">
-
     <a class="go-back justify-content-center align-items-center rounded p-3 p-xl-3 p-lg-5" href="<?= base_url()?>">
         <i class="fas fa-arrow-left"></i>
         <p class="sub-title text-white ml-2 mb-0"> Revenir au hub </p>
     </a>
-
 </div>
-<section class="bg-recommend d-flex align-items-center justify-content-center" name="section-admin">
+
+<section class="bg-extern d-flex align-items-center justify-content-center" id="page-top" name="section-admin">
 
     <div class="container-fluid m-2">
 

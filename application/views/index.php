@@ -1,36 +1,26 @@
 <section class="section-main d-flex align-items-center justify-content-center" id="page-top">
-
     <div class="container-fluid mx-3">
-
         <div class="row">
-
             <div class="col-12 text-center text-white">
 
                 <h1 class="main-title mx-xl-5 pb-3 pb-xl-5">
-
                     Eliott Clavier
-
                 </h1>
 
                 <h2 class="main-sub-title mx-xl-5 pt-3 pt-xl-5">
-
                     Étudiant DEV/OPS à Campus Academy Nantes.
                     Recherche un stage dans le domaine du développement pour septembre 2020.
-
                 </h2>
 
             </div>
-
         </div>
-
     </div>
-
 </section>
 
 
 <section class="bg-white-modern d-flex align-items-center" id="page-about-me">
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="content-about-me">
 
         <div class="row align-items-center justify-content-around">
 
@@ -59,39 +49,35 @@
 
 </section>
 
-<section class="bg-deep d-flex align-items-center justify-content-center" id="page-projects">
+<section class="bg-sun d-flex align-items-center justify-content-center" id="page-projects">
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="content-project">
 
-        <h1 class="title text-center text-white mb-5"> Mes projets </h1>
+        <h1 class="title text-center text-white mb-5"> Un de mes divers projets ... </h1>
 
-        <div class="row align-items-center justify-content-center">
+        <div class="row justify-content-center align-items-center text-white">
 
-            <div class="col-5 p-0">
+            <div class="col-xl-4 col-lg-10 col-md-10 col-sm-10 ">
 
-                <img class="img-fluid" src="assets/images/background_home/Project.webp" alt="Illustration projet">
-
+                <h1 class="sub-title text-center"> <?= $random_project->name ?> </h1>
+                <p class="text text-justify"> <?= $random_project->description ?> </p>
             </div>
 
-            <div class="col-5 px-5 py-3 border-left-project text-left">
+            <span class="col-xl-1"> </span>
 
-                <h1 class="sub-title text-left text-white"> Projet N° 1 </h1>
-
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 px-3">
+                <img class="img-fluid" src="<?= $random_project->associated_image_url ?>" alt="Illustration <?= $random_project->name ?>">
             </div>
 
         </div>
 
-        <div class="row align-items-center justify-content-center">
+        <div class="row justify-content-center align-items-center">
 
-            <div class="col-5 px-5 py-3 border-right-project text-right">
+            <div class="col-6-xl col-lg-10 col-md-10 col-10-sm mt-5 text-center">
 
-                <h1 class="sub-title text-right text-white"> Projet N° 2 </h1>
+                <h1 class="sub-title text-white"> Et pourquoi ne pas découvrir mes projets ? </h1>
 
-            </div>
-
-            <div class="col-5 p-0">
-
-                <img class="img-fluid" src="assets/images/background_home/Project.webp" alt="Illustration projet">
+                <a href="<?= base_url() . 'project' ?>" class="btn btn-xl btn-white m-3"> C'est parti !</a>
 
             </div>
 
@@ -104,7 +90,15 @@
 
 <section class="bg-white-modern d-flex align-items-center justify-content-center" id="page-skills">
 
-    <h1 class="title"> Mes compétences </h1>
+    <div class="container-fluid" id="content-skills">
+
+        <div class="row justify-content-center align-items-center">
+
+            <h1 class="title"> Mes compétences </h1>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -112,7 +106,7 @@
 
 <section class="bg-sky d-flex align-items-center justify-content-center" id="page-timeline">
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="content-timeline">
 
         <div class="row">
 
@@ -138,7 +132,7 @@
 
 <section class="bg-white-modern d-flex align-items-center" id="page-contact-recommend">
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="content-contact-recommend">
 
         <div class="row justify-content-center align-items-center">
 

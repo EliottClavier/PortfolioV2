@@ -76,7 +76,7 @@ $('button.btn-update-user-password-send').on('click', function() {
                 Swal.fire({
                     position : 'center',
                     icon : 'success',
-                    title : 'Votre identifiant a été mis à jour ! Veuillez vous reconnecter.',
+                    title : 'Votre mot de passe a été mis à jour ! Veuillez vous reconnecter.',
                     showConfirmButton : false,
                     timer: 1300
                 });

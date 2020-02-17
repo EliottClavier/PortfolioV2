@@ -31,11 +31,33 @@ class Portfolio_model extends CI_Model
 
     }
 
-    public function adminUpdate($columnName, $data, $id, $table) {
+    public function recommendSelectedMethod($mode = '') {
 
-        $this->db->set($columnName, $data)
-        ->where('id', $id)
-        ->update($table);
+        if ($mode === '1') {
+            $result = $this->getRecommendations();
+            shuffle($result);
+            return $result;
+        } elseif ($mode === '2') {
+            return $this->getRecommendations('pending');
+        } elseif ($mode === '3') {
+            return $this->getRecommendations('verified');
+        } else {
+            return $this->getRecommendations();
+        }
+    }
+
+    public function getProjects($where = '') {
+
+        $this->db->select('*')
+            ->from('project');
+
+        if ($where === 'progress') {
+            $this->db->where('status', $where);
+        } elseif ($where === 'completed') {
+            $this->db->where('status', $where);
+        }
+        $result = $this->db->get();
+        return $result->result();
 
     }
 
@@ -62,31 +84,6 @@ class Portfolio_model extends CI_Model
 
         return $cipherPassword;
 
-    }
-
-    public function adminCountRecommend($type) {
-        $query = $this->db->select('status, count(*) AS total')
-            ->from('recommend')
-            ->like('status', $type)
-            ->get();
-        return $query->row();
-
-    }
-
-
-    public function recommendSelectedMethod($mode = '') {
-
-	    if ($mode === '1') {
-            $result = $this->getRecommendations();
-            shuffle($result);
-            return $result;
-        } elseif ($mode === '2') {
-            return $this->getRecommendations('pending');
-        } elseif ($mode === '3') {
-            return $this->getRecommendations('verified');
-        } else {
-            return $this->getRecommendations();
-        }
     }
 
 }

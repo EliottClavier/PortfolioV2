@@ -6,7 +6,6 @@ $('.menu-trigger').on('click', function() {
 
 });
 
-
 $(document).ready(function() {
    // Fonction permettant un smooth scroll
    $('.js-scrollTo').not('.menu-top').on('click', function() {
@@ -32,16 +31,50 @@ $(document).ready(function() {
 
    });
 
-   // Fonction permettant en fonction du scroll de faire apparaître/disparaître le bouton revenir en haut
-   window.addEventListener("scroll",function() {
-      if(window.scrollY > 50) {
-         $('.menu-top').show();
-      }
-      else {
-         $('.menu-top').hide();
-      }
+   /* Features en fonctions du scroll*/
 
-   },false);
+      /* Convertiseur pixel en viewport */
+         var px_per_vh = $(window).height() / 100;
+
+      /* On cache le contenu des sections qui apparaitront au scroll */
+      $('div[id^=content]').hide();
+
+      window.addEventListener("scroll",function() {
+
+         // Fonction permettant en fonction du scroll de faire apparaître/disparaître le bouton revenir en haut
+         if(window.scrollY > px_per_vh * 15) {
+            $('.menu-top').show();
+         }
+         else {
+            $('.menu-top').hide();
+         }
+
+         if(window.scrollY > px_per_vh * 50) {
+            $('#content-about-me').fadeIn(800);
+         }
+
+         if(window.scrollY > px_per_vh * 130) {
+            $('#content-project').fadeIn(800);
+         }
+
+         if(window.scrollY > px_per_vh * 230) {
+            $('#content-skills').fadeIn(800);
+         }
+
+         if(window.scrollY > px_per_vh * 330) {
+            $('#content-timeline').fadeIn(800);
+         }
+
+         if(window.scrollY > px_per_vh * 430) {
+            $('#content-contact-recommend').fadeIn(800)
+         }
+      },false);
+
+
+/* Fonction qui force le retour en haut au refresh de la page */
+$(window).on('beforeunload', function() {
+   $(window).scrollTop(0,0);
+});
 
    // Affichage du numéro de téléphone
    $('a.phone-trigger').on('click', function() {
