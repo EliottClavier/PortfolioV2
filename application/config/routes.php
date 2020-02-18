@@ -81,3 +81,7 @@ $route['admin/project-select-order'] = 'admin_hub/adminProjectGetOrder';
 $route['admin/project-edit-get-view'] = 'admin_hub/adminProjectGetViewModal';
 $route['admin/project-edit-attempt'] = 'admin_hub/adminProjectUpdate';
 
+$route['admin/project-add'] = 'admin_project_add';
+$route['admin/project-add-attempt'] = 'admin_project_add/addProject';
+
+

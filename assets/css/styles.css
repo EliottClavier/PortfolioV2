@@ -18,8 +18,6 @@ section[name="section-admin"] {
     min-height: 100vh;
 }
 
-
-
 @media only screen and (max-width: 896px) {
     section:not([name="section-admin"]) {
         padding: 5rem 0;
@@ -75,6 +73,13 @@ textarea {
     .Blue-Port-2019-4-rgba { color: rgba(242, 159, 4, 1); }
     .Blue-Port-2019-5-rgba { color: rgba(242, 115, 4, 1); }
 
+
+/* Configuration des background */
+.section-main {
+    background: url(../../assets/images/background_home/sky_background.png) no-repeat center center;
+    background-size: cover;
+}
+
 .bg-sky {
     /* background-color: #0476D9; */
     background: #007bff;
@@ -82,10 +87,9 @@ textarea {
 }
 
 .bg-deep {
-    background: #000428;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #000428;
+    background: -webkit-linear-gradient(to bottom, #004e92, #000428);
+    background: linear-gradient(to bottom, #004e92, #000428);
 }
 
 .bg-flash {
@@ -93,9 +97,9 @@ textarea {
 }
 
 .bg-sun {
-    background: #FF8008;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #FFC837, #FF8008);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #FFC837, #FF8008); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #FF8008;
+    background: -webkit-linear-gradient(to bottom, #FFC837, #FF8008);
+    background: linear-gradient(to bottom, #FFC837, #FF8008);
 }
 
 .bg-flame {
@@ -107,7 +111,7 @@ textarea {
 }
 
 .bg-extern {
-    background: #9CECFB;  /* fallback for old browsers */
+    background: #9CECFB;
     background: -webkit-linear-gradient(to bottom, #0052D4, #65C7F7, #9CECFB);
     background: linear-gradient(to bottom, #0052D4, #65C7F7, #9CECFB);
 }
@@ -269,14 +273,8 @@ textarea {
 }
 
 /* Changement de la couleur des logos de Font Awesome */
-.fa-times, .fa-angle-up, .fa-bars, .fa-arrow-left, .fa-power-off {
+.fa-times, .fa-angle-up, .fa-bars, .fa-arrow-left, .fa-power-off, .fa-plus {
      color: snow;
-}
-
-/* Configuration des sections */
-.section-main {
-    background: url(../../assets/images/background_home/sky_background.png) no-repeat center center;
-    background-size: cover;
 }
 
 /* Configuration des boutons de déclenchement de sidebar ou de redirection */
@@ -306,7 +304,20 @@ textarea {
     transition: 0.3s;
 }
 
-.menu-trigger, .shut-down {
+.add-project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 3em;
+    bottom : 1em;
+    right: 1em;
+    text-align: center;
+    background: rgba(75,181,67,0.65);
+    transition: 0.3s;
+}
+
+.menu-trigger, .shut-down, .add-project {
     width: 3em;
     z-index: 1500;
 }
@@ -324,6 +335,11 @@ textarea {
 .shut-down:hover {
     text-decoration: none;
     background: rgba(220,53,69,0.9);
+}
+
+.add-project:hover {
+    text-decoration: none;
+    background: rgba(75,181,67,0.85);
 }
 
 .menu-top {

@@ -34,7 +34,7 @@
 
         </ul>
 
-         <span class="menu-trigger justify-content-center align-items-center rounded">
+         <span class="menu-trigger justify-content-center align-items-center rounded" style="cursor: pointer">
             <i class="fas fa-bars fa-sm"></i>
         </span>
 

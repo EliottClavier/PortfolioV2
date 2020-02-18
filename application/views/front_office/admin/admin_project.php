@@ -9,11 +9,19 @@
 
 </div>
 
+<div class="container-fluid">
+
+    <a class="add-project justify-content-center align-items-center rounded" href="<?= base_url() . 'admin/project-add'?>">
+        <i class="fas fa-plus fa-sm"></i>
+    </a>
+
+</div>
+
     <section class="bg-extern d-flex align-items-center justify-content-center" id="page-top" name="section-admin">
 
         <div class="container-fluid m-2">
 
-            <h1 class="title text-white text-center"> Mur des recommandations </h1>
+            <h1 class="title text-white text-center"> Section projets </h1>
 
             <form class="form-select-order">
                 <div class="row justify-content-center">
@@ -43,7 +51,7 @@
 
             <div class="search-true row justify-content-center my-5 align-items-center">
 
-                <!-- EMPLACEMENT POUR LE CHARGEMENT DE LA VUE DE TRI (admin_recommend_search) -->
+                <!-- EMPLACEMENT POUR LE CHARGEMENT DE LA VUE DE TRI (admin_project_search) -->
 
             </div>
 

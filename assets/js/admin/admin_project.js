@@ -70,8 +70,6 @@ $(document).on('click', 'button.btn-edit-project-confirm', function () {
                     }
                 });
 
-
-
             } else {
 
                 Swal.fire({
@@ -97,5 +95,47 @@ $(document).on('click', 'button.btn-edit-project-confirm', function () {
             $('#modalEditProject').modal("hide");
 
         }});
+
+});
+
+$('button.btn-add-project').on('click', function () {
+
+    var formData = $('form.form-add-project').serialize();
+    var url = site_url + 'admin/project-add-attempt/';
+
+    $('p.field-error').text('');
+    var elementSelected = $('p.field-error');
+
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: formData,
+        success: function(data) {
+
+            if (data.error) {
+
+                elementSelected.each(function () {
+                    for (var key in data.error) {
+                        if ($(this).attr('data-field') === key) {
+                            $(this).attr('style', 'visibility : visible');
+                            $(this).html(data.error[key]);
+                        }
+                    }
+                });
+
+            } else {
+
+                Swal.fire({
+                    position : 'center',
+                    icon : 'success',
+                    title : 'Votre nouveau projet a été créé !',
+                    showConfirmButton : false,
+                    timer: 1500
+                });
+
+            }
+
+        }
+    })
 
 });

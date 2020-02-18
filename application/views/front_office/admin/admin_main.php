@@ -41,10 +41,6 @@
 
                     </div>
 
-                </div>
-
-                <div class="row form-group justify-content-center">
-
                     <div class="col-8 m-2">
 
                         <p class="field-error-admin-match text-center" data-field="loginMatch"></p>
@@ -65,10 +61,7 @@
 
                     </div>
 
-
-
                 </div>
-
 
             </form>
 
