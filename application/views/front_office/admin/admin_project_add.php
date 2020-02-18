@@ -59,7 +59,7 @@
                         <option value="progress"> En cours </option>
                         <option value="completed"> Achevé </option>
                     </select>
-                    <p class="field-error" data-field="addProjectStatus"></p>
+                    <p class="field-error-admin" data-field="addProjectStatus"></p>
                 </div>
 
             </div>

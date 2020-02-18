@@ -103,8 +103,8 @@ $('button.btn-add-project').on('click', function () {
     var formData = $('form.form-add-project').serialize();
     var url = site_url + 'admin/project-add-attempt/';
 
-    $('p.field-error').text('');
-    var elementSelected = $('p.field-error');
+    $('p.field-error-admin').text('');
+    var elementSelected = $('p.field-error-admin');
 
     $.ajax({
         url: url,

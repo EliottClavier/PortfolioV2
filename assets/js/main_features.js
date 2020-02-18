@@ -71,7 +71,10 @@ $(document).ready(function() {
       },false);
 
 
-
+/* Fonction qui force le retour en haut au refresh de la page */
+$(window).on('beforeunload', function() {
+   $(window).scrollTop(0,0);
+});
 
    // Affichage du numéro de téléphone
    $('a.phone-trigger').on('click', function() {
