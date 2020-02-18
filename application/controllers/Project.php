@@ -23,8 +23,8 @@ class Project  extends MY_Controller {
             'assets/js/projects'
         ));
 
-        $this->data['completed_projects'] = $this->portfolioManager->getProjects('completed');
-        $this->data['progress_projects'] = $this->portfolioManager->getProjects('progress');
+        $this->data['completed_projects'] = $this->portfolioManager->getTable('project', 'status', 'completed');
+        $this->data['progress_projects'] = $this->portfolioManager->getTable('project', 'status', 'progress');
 
         $this->data['subview'] = 'front_office/project';
 

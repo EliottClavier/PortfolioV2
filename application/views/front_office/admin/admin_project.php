@@ -9,42 +9,45 @@
 
 </div>
 
-    <section class="bg-white-modern d-flex align-items-center justify-content-center" id="page-top" name="section-admin">
+    <section class="bg-extern d-flex align-items-center justify-content-center" id="page-top" name="section-admin">
 
         <div class="container-fluid m-2">
 
-            <h1 class="title text-center"> Section projets </h1>
+            <h1 class="title text-white text-center"> Mur des recommandations </h1>
 
-            <div class="row justify-content-center my-3">
+            <form class="form-select-order">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-11 col-md-11 col-sm-11 my-3">
+                        <div class="input-group mb-3">
 
-                <div class="col-10 m-3 projects-completed display-0">
+                            <label for="selectOrder"></label>
+                            <select class="custom-select select-order" name="selectOrder" id="selectOrder">
+                                <option selected> -- Mode de tri -- </option>
+                                <option value="asc"> Ordre croissant </option>
+                                <option value="desc"> Ordre décroissant </option>
+                                <option value="random"> Ordre aléatoire </option>
+                                <option value="progress"> Seulement en cours </option>
+                                <option value="completed"> Seulement achevés </option>
+                                <option value="offline"> Seulement hors ligne </option>
+                            </select>
 
-                    <?php  if (empty($projects)) { ?>
-
-                        <h1 class="title"> Rien à afficher ici ! </h1>
-
-                    <?php } ?>
-
-                    <?php
-                        foreach ($projects as $project) {
-                    ?>
-
-                        <div class="row justify-content-center align-items-center py-5 border-black-bottom">
-                            <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 p-0">
-                                <img class="img-fluid" src="<?= $project->associated_image_url ?>" alt="Illustration <?= $project->name ?>">
-                            </div>
-
-                            <span class="col-xl-1"> </span>
-
-                            <div class="col-xl-5 col-lg-10 col-md-10 col-sm-10 mt-5 mt-xl-0 mt-lg-0">
-                                <h1 class="sub-title text-center"> <?= $$project->name ?> </h1>
-                                <p class="text text-justify"> <?= $project->description ?> </p>
-                            </div>
                         </div>
-
-                    <?php } ?>
+                    </div>
                 </div>
+            </form>
+            <div class="search-false row justify-content-center align-items-center">
+
+                <h1 class="sub-title text-white"> Veuillez choisir un mode de tri </h1>
+
             </div>
+
+            <div class="search-true row justify-content-center my-5 align-items-center">
+
+                <!-- EMPLACEMENT POUR LE CHARGEMENT DE LA VUE DE TRI (admin_recommend_search) -->
+
+            </div>
+
+        </div>
 
     </section>
 

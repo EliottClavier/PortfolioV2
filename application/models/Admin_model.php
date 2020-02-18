@@ -48,23 +48,14 @@ class Admin_model extends CI_Model
 
     }
 
-    public function adminCountRecommend($type) {
+    public function adminCountStatus($table, $type) {
         $query = $this->db->select('status, count(*) AS total')
-            ->from('recommend')
+            ->from($table)
             ->like('status', $type)
             ->get();
         return $query->row();
 
     }
-
-    public function adminCountProject() {
-        $query = $this->db->select('status, count(*) AS total')
-            ->from('project')
-            ->get();
-        return $query->row();
-
-    }
-
     public function adminUpdate($columnName, $data, $id, $table) {
 
         $this->db->set($columnName, $data)

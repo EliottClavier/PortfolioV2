@@ -128,7 +128,7 @@
 
                                         <div class="col-11">
                                             <label class="invisible" for="userName"></label>
-                                            <input type="text" class="form-custom" name="userName" id="userName" placeholder="Nouvel identifiant" >
+                                            <input type="text" class="form-custom" name="userName" id="userName" placeholder="Nouvel identifiant *">
                                             <p class="field-error-admin text-danger mt-3" data-field="userName"></p>
                                         </div>
 
@@ -137,6 +137,7 @@
                                 </div>
 
                                 <div class="modal-footer">
+                                    <span class="text text-muted"> * Obligatoire </span>
                                     <button type="button" class="btn btn-outline-dark" data-dismiss="modal"> Annuler </button>
                                     <button type="button" class="btn btn-primary btn-update-user-name-send" data-target="#modalUpdateUserName"> Modifier </button>
                                 </div>
@@ -162,13 +163,13 @@
 
                                         <div class="col-11">
                                             <label class="invisible" for="userPassword"></label>
-                                            <input type="password" class="form-custom" name="userPassword" id="userPassword" placeholder="Nouveau mot de passe">
+                                            <input type="password" class="form-custom" name="userPassword" id="userPassword" placeholder="Nouveau mot de passe *">
                                             <p class="field-error-admin text-danger mt-3" data-field="userPassword"></p>
                                         </div>
 
                                         <div class="col-11">
                                             <label class="invisible" for="userPasswordConfirm"></label>
-                                            <input type="password" class="form-custom" name="userPasswordConfirm" id="userPasswordConfirm" placeholder="Confirmation du nouveau mot de passe">
+                                            <input type="password" class="form-custom" name="userPasswordConfirm" id="userPasswordConfirm" placeholder="Confirmation du nouveau mot de passe *">
                                             <p class="field-error-admin text-danger mt-3" data-field="userPasswordConfirm"></p>
                                         </div>
 
@@ -177,6 +178,7 @@
                                 </div>
 
                                 <div class="modal-footer">
+                                    <span class="text text-muted"> * Obligatoire </span>
                                     <button type="button" class="btn btn-outline-dark" data-dismiss="modal"> Annuler </button>
                                     <button type="button" class="btn btn-primary btn-update-user-password-send" data-target="#modalUpdateUserPassword"> Modifier </button>
                                 </div>
@@ -206,8 +208,8 @@
 
                     <div class="card-body">
 
-                        <p class="text card-text"> <span class="badge badge-danger"> <?= $recommend_pending->total ?> </span> recommendations en attentes </p>
-                        <p class="text card-text"> <span class="badge badge-primary"> <?= $recommend_verified->total ?> </span> recommendations visibles </p>
+                        <p class="sub-title card-text"> <span class="badge badge-danger"> <?= $recommend_pending->total ?> </span> recommendations en attentes </p>
+                        <p class="sub-title card-text"> <span class="badge badge-primary"> <?= $recommend_verified->total ?> </span> recommendations visibles </p>
                         <a href="<?= base_url() . 'admin/recommend' ?>" class="btn btn-dark text"> Panneau d'activation des recommandations </a>
                     </div>
                 </div>
@@ -217,13 +219,14 @@
                 <div class="card p-3">
                     <div class="card-header">
                         <h1 class="card-title sub-title">
-                            Section projet
+                            Section projets
                         </h1>
                     </div>
 
                     <div class="card-body">
-
-                        <p class="text card-text"> <span class="badge badge-secondary"> <?= $project_total->total ?> </span> projets sont actuellement affichés sur le site </p>
+                        <p class="sub-title card-text"> <span class="badge badge-success"> <?= $project_completed->total ?> </span> projets complétés </p>
+                        <p class="sub-title card-text"> <span class="badge badge-primary"> <?= $project_progress->total ?> </span> projets en cours </p>
+                        <p class="sub-title card-text"> <span class="badge badge-dark"> <?= $project_offline->total ?> </span> projets n'apparaissent pas sur le site </p>
                         <a href="<?= base_url() . 'admin/project' ?>" class="btn btn-dark text"> Panneau de modification des projets </a>
                     </div>
                 </div>

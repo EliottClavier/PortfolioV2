@@ -23,10 +23,11 @@
                         <label for="selectOrder"></label>
                         <select class="custom-select select-order" name="selectOrder" id="selectOrder">
                             <option selected> -- Mode de tri -- </option>
-                            <option value="0"> Ordre par ID </option>
-                            <option value="1"> Ordre aléatoire </option>
-                            <option value="2"> Seulement en attente </option>
-                            <option value="3"> Seulement validé </option>
+                            <option value="asc"> Ordre croissant </option>
+                            <option value="desc"> Ordre décroissant </option>
+                            <option value="random"> Ordre aléatoire </option>
+                            <option value="pending"> Seulement en attente </option>
+                            <option value="verified"> Seulement validé </option>
                         </select>
 
                     </div>

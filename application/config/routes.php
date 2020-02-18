@@ -77,4 +77,7 @@ $route['admin/recommend-switch-status'] = 'admin_hub/adminRecommendSwitchStatus'
 $route['admin/recommend-select-order'] = 'admin_hub/adminRecommendGetOrder';
 
 $route['admin/project'] = 'admin_hub/adminProject';
+$route['admin/project-select-order'] = 'admin_hub/adminProjectGetOrder';
+$route['admin/project-edit-get-view'] = 'admin_hub/adminProjectGetViewModal';
+$route['admin/project-edit-attempt'] = 'admin_hub/adminProjectUpdate';
 

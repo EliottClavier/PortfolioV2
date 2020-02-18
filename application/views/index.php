@@ -56,18 +56,32 @@
         <h1 class="title text-center text-white mb-5"> Un de mes divers projets ... </h1>
 
         <div class="row justify-content-center align-items-center text-white">
+            <?php
 
-            <div class="col-xl-4 col-lg-10 col-md-10 col-sm-10 ">
+            if (!(isset($random_project))) { ?>
 
-                <h1 class="sub-title text-center"> <?= $random_project->name ?> </h1>
-                <p class="text text-justify"> <?= $random_project->description ?> </p>
-            </div>
+                <div class="col-xl-6 col-lg-10 col-md-10 col-sm-10 ">
 
-            <span class="col-xl-1"> </span>
+                        <h1 class="title text-center"> Rien à afficher ici ! </h1>
 
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 px-3">
-                <img class="img-fluid" src="<?= $random_project->associated_image_url ?>" alt="Illustration <?= $random_project->name ?>">
-            </div>
+                </div>
+
+            <?php } else { ?>
+
+                <div class="col-xl-4 col-lg-10 col-md-10 col-sm-10 ">
+
+                        <h1 class="sub-title text-center"> <?= $random_project->name ?> </h1>
+                        <p class="text text-justify"> <?= $random_project->description ?> </p>
+
+                </div>
+
+                <span class="col-xl-1"> </span>
+
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 px-3">
+                    <img class="img-fluid" src="<?= $random_project->associated_image_url ?>" alt="Illustration <?= $random_project->name ?>">
+                </div>
+
+            <?php } ?>
 
         </div>
 
@@ -154,8 +168,8 @@
                 </div>
                 <!-- Modal -->
 
-                <div class="modal fade" id="modalContact" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal" id="modalContact" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
 
                             <form class="form-contact">
@@ -166,45 +180,46 @@
 
                                         <div class="col-11">
                                             <label class="invisible" for="contactName"></label>
-                                            <input type="text" class="form-custom" name="contactName" id="contactName" placeholder="Votre nom" >
+                                            <input type="text" class="form-custom" name="contactName" id="contactName" placeholder="Votre nom *" >
                                             <p class="field-error" data-field="contactName"></p>
                                         </div>
 
                                         <div class="col-11">
                                             <label class="invisible" for="contactFirstName"></label>
-                                            <input type="text" class="form-custom" name="contactFirstName" id="contactFirstName" placeholder="Votre prénom">
+                                            <input type="text" class="form-custom" name="contactFirstName" id="contactFirstName" placeholder="Votre prénom *">
                                             <p class="field-error" data-field="contactFirstName"></p>
                                         </div>
 
                                         <div class="col-11">
                                             <label class="invisible" for="contactCompanyName"></label>
-                                            <input type="text" class="form-custom" name="contactCompanyName" id="contactCompanyName" placeholder="Votre nom d'entreprise">
+                                            <input type="text" class="form-custom" name="contactCompanyName" id="contactCompanyName" placeholder="Votre nom d'entreprise *">
                                             <p class="field-error" data-field="contactCompanyName"></p>
                                         </div>
 
                                         <div class="col-11">
                                             <label class="invisible" for="contactEmail"></label>
-                                            <input type="email" class="form-custom" name="contactEmail" id="contactEmail" placeholder="Votre email">
+                                            <input type="email" class="form-custom" name="contactEmail" id="contactEmail" placeholder="Votre email *">
                                             <p class="field-error" data-field="contactEmail"></p>
                                         </div>
 
-                                    </div>
+                                        <div class="col-11">
+                                            <label class="invisible" for="contactObject"></label>
+                                            <input class="form-custom" name="contactObject" id="contactObject" placeholder="Objet de votre message *" style="resize: none;">
+                                            <p class="field-error" data-field="contactObject"></p>
+                                        </div>
 
-                                    <div class="col-11">
-                                        <label class="invisible" for="contactObject"></label>
-                                        <input class="form-custom h-75" name="contactObject" id="contactObject" placeholder="Objet de votre message" style="resize: none;">
-                                        <p class="field-error" data-field="contactObject"></p>
-                                    </div>
+                                        <div class="col-11">
+                                            <label class="invisible" for="contactText"></label>
+                                            <textarea class="form-custom h-75" name="contactText" id="contactText" placeholder="Votre message *"></textarea>
+                                            <p class="field-error" data-field="contactText"></p>
+                                        </div>
 
-                                    <div class="col-11">
-                                        <label class="invisible" for="contactText"></label>
-                                        <textarea class="form-custom h-75" name="contactText" id="contactText" placeholder="Votre message" style="resize: none;"></textarea>
-                                        <p class="field-error" data-field="contactText"></p>
                                     </div>
 
                                 </div>
 
                                 <div class="modal-footer">
+                                    <span class="text text-muted"> * Obligatoire </span>
                                     <button type="button" class="btn btn-outline-dark" data-dismiss="modal"> Annuler </button>
                                     <button type="button" class="btn btn-flame btn-contact-send" data-target="#modalContact"> Envoyer </button>
                                 </div>
@@ -241,7 +256,7 @@
                 <!-- Modal -->
 
                 <div class="modal fade" id="modalRecommend" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                         <div class="modal-content">
 
                             <form class="form-recommend">
@@ -252,32 +267,32 @@
 
                                         <div class="col-11">
                                             <label class="invisible" for="recommendName"></label>
-                                            <input type="text" class="form-custom" name="recommendName" id="recommendName" placeholder="Votre nom" >
+                                            <input type="text" class="form-custom" name="recommendName" id="recommendName" placeholder="Votre nom *" >
                                             <p class="field-error" data-field="recommendName"></p>
                                         </div>
 
                                         <div class="col-11">
                                             <label class="invisible" for="recommendFirstName"></label>
-                                            <input type="text" class="form-custom" name="recommendFirstName" id="recommendFirstName" placeholder="Votre prénom">
+                                            <input type="text" class="form-custom" name="recommendFirstName" id="recommendFirstName" placeholder="Votre prénom *">
                                             <p class="field-error" data-field="recommendFirstName"></p>
                                         </div>
 
                                         <div class="col-11">
                                             <label class="invisible" for="recommendCompanyName"></label>
-                                            <input type="text" class="form-custom" name="recommendCompanyName" id="recommendCompanyName" placeholder="Votre nom d'entreprise">
+                                            <input type="text" class="form-custom" name="recommendCompanyName" id="recommendCompanyName" placeholder="Votre nom d'entreprise *">
                                             <p class="field-error" data-field="recommendCompanyName"></p>
                                         </div>
 
                                         <div class="col-11">
                                             <label class="invisible" for="recommendEmail"></label>
-                                            <input type="email" class="form-custom" name="recommendEmail" id="recommendEmail" placeholder="Votre email">
+                                            <input type="email" class="form-custom" name="recommendEmail" id="recommendEmail" placeholder="Votre email *">
                                             <p class="field-error" data-field="recommendEmail"></p>
                                         </div>
 
                                         <div class="col-11">
 
                                             <h1 class="text text-center mt-4">
-                                                Période de collaboration <br/> (Début / Fin)
+                                                Période de collaboration <br/> (Début / Fin) *
                                             </h1>
 
                                             <div class="row justify-content-center">
@@ -300,7 +315,7 @@
 
                                         <div class="col-11">
                                             <label class="invisible" for="recommendText"></label>
-                                            <textarea class="form-custom h-75" name="recommendText" id="recommendText" placeholder="Votre message" style="resize: none;"></textarea>
+                                            <textarea class="form-custom h-75" name="recommendText" id="recommendText" placeholder="Votre message *"></textarea>
                                             <p class="field-error" data-field="recommendText"></p>
                                         </div>
 
@@ -309,6 +324,7 @@
                                 </div>
 
                                 <div class="modal-footer">
+                                    <span class="text text-muted"> * Obligatoire </span>
                                     <button type="button" class="btn btn-outline-dark" data-dismiss="modal"> Annuler </button>
                                     <button type="button" class="btn btn-flame btn-recommend-send" data-target="#modalRecommend"> Envoyer </button>
                                 </div>

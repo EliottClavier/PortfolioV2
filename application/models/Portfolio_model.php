@@ -16,54 +16,54 @@ class Portfolio_model extends CI_Model
 
     }
 
-    public function getRecommendations($where = '') {
+    public function getTable($table, $where = false, $value = false, $order = false, $format = 'array') {
 
 	    $this->db->select('*')
-            ->from('recommend');
+            ->from($table);
 
-        if ($where === 'verified') {
-            $this->db->where('status', $where);
-        } elseif ($where === 'pending') {
-            $this->db->where('status', $where);
+	    if ($where != false) {
+            $this->db->where($where, $value);
         }
+
+        /* Ordre croissant ou décroissant */
+        if ($order === 'asc') {
+            $this->db->order_by('id', 'ASC');
+        } elseif ($order === 'desc') {
+            $this->db->order_by('id', 'DESC');
+        }
+
         $result = $this->db->get();
-        return $result->result();
+        if ($format === 'row') {
+            return $result->row();
+        } else {
+            return $result->result();
+        }
 
     }
 
-    public function recommendSelectedMethod($mode = '') {
+    public function selectedMethod($table, $mode = false) {
 
-        if ($mode === '1') {
-            $result = $this->getRecommendations();
+	    /* Ordre croissant / décroissant */
+	    if (($mode === 'asc') || ($mode === 'desc')){
+            return $this->getTable($table, false, false,$mode);
+        }
+        /* Ordre aléatoire */
+        elseif ($mode === 'random') {
+            $result = $this->getTable($table);
             shuffle($result);
             return $result;
-        } elseif ($mode === '2') {
-            return $this->getRecommendations('pending');
-        } elseif ($mode === '3') {
-            return $this->getRecommendations('verified');
-        } else {
-            return $this->getRecommendations();
         }
-    }
-
-    public function getProjects($where = '') {
-
-        $this->db->select('*')
-            ->from('project');
-
-        if ($where === 'progress') {
-            $this->db->where('status', $where);
-        } elseif ($where === 'completed') {
-            $this->db->where('status', $where);
+        /* Seulement en attente / en cours / vérifiés / achevés / hors ligne*/
+        elseif (($mode === 'pending') || ($mode === 'progress') || ($mode === 'verified') || ($mode === 'completed') || ($mode === 'offline')) {
+            return $this->getTable($table, 'status', $mode);
         }
-        $result = $this->db->get();
-        return $result->result();
-
+        /* Autres */
+        else {
+            return $this->getTable($table);
+        }
     }
 
     public function checkExistUser($where) {
-
-        // die(var_dump($field));
 
         $query = $this->db->select('*')
             ->from('admin_logs')

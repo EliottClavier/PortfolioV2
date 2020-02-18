@@ -26,9 +26,11 @@ class Admin_hub extends MY_Controller {
         ));
 
         /* On compte le nombre de recommandations et de projets présents sur le site pour l'afficher sur le panel */
-        $this->data['recommend_pending'] = $this->adminManager->adminCountRecommend("pending");
-        $this->data['recommend_verified'] = $this->adminManager->adminCountRecommend("verified");
-        $this->data['project_total'] = $this->adminManager->adminCountProject();
+        $this->data['recommend_pending'] = $this->adminManager->adminCountStatus('recommend', "pending");
+        $this->data['recommend_verified'] = $this->adminManager->adminCountStatus('recommend', "verified");
+        $this->data['project_progress'] = $this->adminManager->adminCountStatus('project', "progress");
+        $this->data['project_completed'] = $this->adminManager->adminCountStatus('project', "completed");
+        $this->data['project_offline'] = $this->adminManager->adminCountStatus('project', "offline");
 
         $this->data['subview'] = 'front_office/admin/admin_main';
 
@@ -209,7 +211,7 @@ class Admin_hub extends MY_Controller {
             'assets/js/admin/admin_recommend',
         ));
 
-        $this->data['recommendations'] = $this->portfolioManager->recommendSelectedMethod();
+        $this->data['recommendations'] = $this->portfolioManager->selectedMethod('recommend');
 
         $this->data['subview'] = 'front_office/admin/admin_recommend';
 
@@ -228,7 +230,7 @@ class Admin_hub extends MY_Controller {
     public function adminRecommendGetOrder() {
 
         $mode = $this->input->post('selectOrder');
-        $this->data['recommendations'] = $this->portfolioManager->recommendSelectedMethod($mode);
+        $this->data['recommendations'] = $this->portfolioManager->selectedMethod('recommend', $mode);
 
         $view = $this->load->view('front_office/admin/admin_recommend_search', $this->data, true);
 
@@ -250,16 +252,111 @@ class Admin_hub extends MY_Controller {
         $this->data['js'] = $this->layout->add_js(array(
             'assets/plugins/jquery-3.3.1.min',
             'assets/plugins/bootstrap/js/bootstrap.min',
-            'assets/js/admin/admin_recommend',
+            'assets/js/admin/admin_project'
         ));
 
-        $this->data['projects'] = $this->portfolioManager->getProjects('completed');
+        $this->data['projects'] = $this->portfolioManager->getTable('project');
 
         $this->data['subview'] = 'front_office/admin/admin_project';
 
         $this->load->view('components_home/main', $this->data);
     }
 
+    public function adminProjectGetOrder() {
+
+        $mode = $this->input->post('selectOrder');
+        $this->data['projects'] = $this->portfolioManager->selectedMethod('project', $mode);
+
+        $view = $this->load->view('front_office/admin/admin_project_search', $this->data, true);
+
+        header('Content-type:application/json');
+        echo json_encode(array(
+            'view' => $view
+        ));
+
+    }
+
+    public function adminProjectGetViewModal() {
+
+	    $projectNum = $this->input->post('project');
+
+	    $this->data['selected_project'] = $this->portfolioManager->getTable('project', 'id', $projectNum, false, 'row');
+
+        $view = $this->load->view('front_office/admin/admin_project_edit', $this->data, true);
+
+        header('Content-type:application/json');
+        echo json_encode(array(
+            'view' => $view
+        ));
+
+    }
+
+    public function adminProjectUpdate() {
+
+	    $rulesArray = array(
+            array(
+                'field' => 'editName',
+                'label' => 'concernant le nom du projet',
+                'rules' => 'trim|required|max_length[100]'
+            ),
+            array(
+                'field' => 'editDesc',
+                'label' => 'concernant la description du projet',
+                'rules' => 'trim|required|max_length[2000]'
+            ),
+            array(
+                'field' => 'editURL',
+                'label' => 'concernant l\'URL menant au projet ',
+                'rules' => 'trim|max_length[200]'
+            ),
+            array(
+                'field' => 'editImageURL',
+                'label' => 'concernant l\'image associée au projet',
+                'rules' => 'trim|required|max_length[200]'
+            ),
+            array(
+                'field' => 'editStatus',
+                'label' => 'concernant le statut du projet',
+                'rules' => 'trim|required'
+            )
+        );
+
+        $this->form_validation->set_rules($rulesArray);
+
+        if ($this->form_validation->run() === FALSE) {
+
+            $errorsArray = $this->form_validation->get_all_errors();
+
+            header('Content-type:application/json');
+            echo json_encode(array(
+                'error' => $errorsArray
+            ));
+
+        } else {
+
+            $editProject = $this->input->post();
+
+            $editDatas = array(
+                'name' => $editProject['editName'],
+                'description' => $editProject['editDesc'],
+                'url' => $editProject['editURL'],
+                'associated_image_url' => $editProject['editImageURL'],
+                'status' => $editProject['editStatus']
+            );
+
+            foreach ($editDatas as $key => $value) {
+                $this->adminManager->adminUpdate($key, $value, $editProject['editID'], 'project');
+            }
+
+            /* On envoie un tableau pour rafraichir les données des cards affichées */
+            header('Content-type:application/json');
+            echo json_encode(array(
+                'projectRefreshID' => $editProject['editID'],
+                'projectRefresh' => $editDatas,
+            ));
+
+        }
+    }
 
 
     /* Fonction callback */

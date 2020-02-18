@@ -13,6 +13,12 @@
 
         <div class="row justify-content-center m-xl-5 m-lg-3 m-md-0 m-sm-0">
 
+                <?php  if (empty($recommendations)) { ?>
+
+                    <h1 class="title text-white"> Rien à afficher ici ! </h1>
+
+                <?php } ?>
+
                 <?php
                     shuffle($recommendations);
                     foreach ($recommendations as $recommendation) {

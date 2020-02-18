@@ -24,9 +24,11 @@ class Home extends MY_Controller {
         ));
 
         /* Sélection au hasard d'un projet sur toutes les valeurs disponibles */
-        $projects = $this->portfolioManager->getProjects();
-        $random = array_rand($projects);
-        $this->data['random_project'] = $projects[$random];
+        $projects = $this->portfolioManager->getTable('project' ,'status !=', 'offline');
+        if (!(empty($projects))) {
+            $random = array_rand($projects);
+            $this->data['random_project'] = $projects[$random];
+        }
 
         $this->data['subview'] = 'index';
 
