@@ -73,7 +73,6 @@ textarea {
     .Blue-Port-2019-4-rgba { color: rgba(242, 159, 4, 1); }
     .Blue-Port-2019-5-rgba { color: rgba(242, 115, 4, 1); }
 
-
 /* Configuration des background */
 .section-main {
     background: url(../../assets/images/background_home/sky_background.png) no-repeat center center;
@@ -207,7 +206,35 @@ textarea {
         border-radius: 5px;
     }
 }
+/* Classe pour le loading screen */
+.modal-loading {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 )
+    url('http://i.stack.imgur.com/FhHRx.gif')
+    50% 50%
+    no-repeat;
+}
 
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading .modal-loading {
+    overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .modal-loading {
+    display: block;
+}
+
+
+/* Création d'une classe pour display none */
 .display-0 {
     display: none;
 }
@@ -353,19 +380,6 @@ textarea {
     background: rgba(5,5,5,0.5);
     transition: 0.3s;
 }
-
-.menu-bottom {
-    display: flex;
-    position: fixed;
-    width: 3em;
-    height: 3em;
-    bottom : 1em;
-    right: 1em;
-    text-align: center;
-    background: rgba(5,5,5,0.5);
-    transition: 0.3s;
-}
-
 
 /* Configuration de la sidebar */
 #sidebar {
@@ -534,18 +548,15 @@ textarea {
     .title {
         font-size: 5vh;
     }
-
     .sub-title {
         font-size: 2.5vh;
     }
     .text {
         font-size: 2vh;
     }
-
     .title-line {
         font-size: 3vh;
     }
-
     .title-line:before, .title-line:after{
         border-bottom: none;
     }
@@ -555,15 +566,12 @@ textarea {
     .title {
         font-size: 5vw;
     }
-
     .sub-title {
         font-size: 2.5vw;
     }
-
     .text {
         font-size: 2vw;
     }
-
     .title-line {
         font-size: 3vw;
     }
@@ -696,4 +704,34 @@ textarea {
 .projects-images {
     height: 10vh;
     width: 20vw;
+}
+
+/* Progress-bar */
+
+.progress {
+    height: 4em;
+    width: 100%;
+    background: rgba(220,220,220,1);;
+    position: relative;
+    border-radius: 0px;
+}
+
+.progress-bar {
+    width: 0px;
+    height: 4em;
+    color:#fff;
+    background: rgba(200,200,200,0.8);
+    -webkit-transition: none !important;
+    transition: none !important;
+}
+
+.progress {
+    background-color: #e4c465;
+    animation: progressBar 3s ease-in-out;
+    animation-fill-mode:both;
+}
+
+@keyframes progressBar {
+    0% { width: 0; }
+    100% { width: 100%; }
 }

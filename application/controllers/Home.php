@@ -23,12 +23,15 @@ class Home extends MY_Controller {
             'assets/js/main_form',
         ));
 
-        /* Sélection au hasard d'un projet sur toutes les valeurs disponibles */
+        /* Sélection au hasard d'un projet sur toutes les valeurs disponibles sauf les projets en statut hors-ligne*/
         $projects = $this->portfolioManager->getTable('project' ,'status !=', 'offline');
         if (!(empty($projects))) {
             $random = array_rand($projects);
             $this->data['random_project'] = $projects[$random];
         }
+
+        $this->data['languages'] = $this->portfolioManager->getTable('skills', 'category', 'language');
+        $this->data['tools'] = $this->portfolioManager->getTable('skills', 'category', 'tool');
 
         $this->data['subview'] = 'index';
 

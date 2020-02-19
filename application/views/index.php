@@ -106,13 +106,59 @@
 
     <div class="container-fluid" id="content-skills">
 
+            <h1 class="title text-center"> Mes compétences </h1>
+
+            <div class="row justify-content-center align-items-center">
+                <?php if (!(isset($languages))) { ?>
+
+                    <h1 class="title text-center"> Rien à afficher ici ! </h1>
+
+                <?php } ?>
+            </div>
+
+            <div class="row justify-content-center align-items-center">
+                <h3 class="sub-title text-center"> Languages de programmations et frameworks </h3>
+            </div>
+
+            <div class="row justify-content-center align-items-center">
+
+                <?php foreach ($languages as $language) { ?>
+
+                    <div class="col-xl-5 col-lg-10 col-md-10 col-sm-10 m-3">
+
+                        <div class="progress" style="background-color: <?= $language->associated_color . 'CC'?>;">
+                            <div class="progress-bar" style="background-color: <?= $language->associated_color ?>;" data-width="<?= $language->advancement?>">
+                                <h1 class="sub-title m-0">  <?= $language->name ?> </h1>
+                            </div>
+                        </div>
+
+                    </div>
+
+                <?php } ?>
+            </div>
+
         <div class="row justify-content-center align-items-center">
-
-            <h1 class="title"> Mes compétences </h1>
-
+            <h3 class="sub-title text-center"> Environnements de travail et outils </h3>
         </div>
 
-    </div>
+        <div class="row justify-content-center align-items-center">
+
+            <?php foreach ($tools as $tool) { ?>
+
+                <div class="col-xl-5 col-lg-10 col-md-10 col-sm-10 m-3">
+
+                    <div class="progress" style="background-color: <?= $tool->associated_color . 'CC'?>;">
+                        <div class="progress-bar" style="background-color: <?= $tool->associated_color ?>;" data-width="<?= $tool->advancement?>">
+                            <h1 class="sub-title m-0">  <?= $tool->name ?> </h1>
+                        </div>
+                    </div>
+
+                </div>
+
+            <?php } ?>
+        </div>
+
+        </div>
 
 </section>
 
@@ -219,7 +265,7 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <span class="text text-muted"> * Obligatoire </span>
+                                    <p class="text text-muted"> * Obligatoire </p>
                                     <button type="button" class="btn btn-outline-dark" data-dismiss="modal"> Annuler </button>
                                     <button type="button" class="btn btn-flame btn-contact-send" data-target="#modalContact"> Envoyer </button>
                                 </div>
@@ -356,5 +402,9 @@
     </div>
 
 </section>
+
+<div class="modal-loading">
+    <!-- Modal de loading screen  -->
+</div>
 
 

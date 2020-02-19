@@ -1,3 +1,11 @@
+$body = $("body");
+
+$(document).on({
+   ajaxStart: function() { $body.addClass("loading");    },
+   ajaxStop: function() { $body.removeClass("loading"); }
+});
+
+
 $('.menu-trigger').on('click', function() {
 
     // La balise <i> de Font Awesome se tranforme en balise svg
@@ -72,9 +80,18 @@ $(document).ready(function() {
 
 
 /* Fonction qui force le retour en haut au refresh de la page */
-$(window).on('beforeunload', function() {
+/* $(window).on('beforeunload', function() {
    $(window).scrollTop(0,0);
-});
+}); */
+
+/* Animations sidebar de la partie compétences */
+   $(".progress-bar").css("width", "0px");
+   $(function() {
+      $(".progress-bar").each(function() {
+         var finalWidth = parseInt($(this).attr("data-width"));
+         $(this).css("width", "0px").animate({width: finalWidth+"%"}, 500);
+      });
+   });
 
    // Affichage du numéro de téléphone
    $('a.phone-trigger').on('click', function() {
