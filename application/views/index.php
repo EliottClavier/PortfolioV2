@@ -403,8 +403,3 @@
 
 </section>
 
-<div class="modal-loading">
-    <!-- Modal de loading screen  -->
-</div>
-
-

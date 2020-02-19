@@ -1,11 +1,3 @@
-$body = $("body");
-
-$(document).on({
-   ajaxStart: function() { $body.addClass("loading");    },
-   ajaxStop: function() { $body.removeClass("loading"); }
-});
-
-
 $('.menu-trigger').on('click', function() {
 
     // La balise <i> de Font Awesome se tranforme en balise svg
