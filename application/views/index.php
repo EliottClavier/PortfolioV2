@@ -156,9 +156,10 @@
                 </div>
 
             <?php } ?>
-        </div>
 
         </div>
+
+    </div>
 
 </section>
 
@@ -172,7 +173,7 @@
 
             <div class="col-12">
 
-                <h1 class="title text-white text-center"> Ma formation et ... </h1>
+                <h1 class="title text-white text-center"> Ma formation </h1>
 
             </div>
 
@@ -180,44 +181,35 @@
 
         <div class="row justify-content-center align-items-center">
 
-            <div class="col-xl-5 col-lg-10 col-md-10 col-sm-10 m-3">
+            <?php foreach ($formations as $formation) { ?>
 
-                TEST
+                <div class="col-xl-7 col-lg-10 col-md-10 col-sm-10 my-3">
+                    <h1 class="title-line-white text-white text-center"> <?= $formation->period ?> </h1>
+                    <h1 class="sub-title text-white text-justify"> <?= $formation->label ?> </h1>
+                    <p class="text text-white text-justify"> <?= $formation->description ?> </p>
+                </div>
 
-            </div>
-
-            <span class="col-xl-1"></span>
-
-            <div class="col-xl-5 col-lg-10 col-md-10 col-sm-10 m-3">
-
-                TEST
-
-            </div>
+            <?php } ?>
 
         </div>
 
-        <h1 class="title text-white text-center"> ... mes expériences profesionnelles </h1>
+        <h1 class="title text-white text-center mt-xl-5"> Mes expériences profesionnelles </h1>
 
         <div class="row justify-content-center align-items-center">
 
-            <div class="col-xl-5 col-lg-10 col-md-10 col-sm-10 m-3">
+            <?php foreach ($experiences as $experience) { ?>
 
-                TEST
+                <div class="col-xl-7 col-lg-10 col-md-10 col-sm-10 my-3">
+                    <h1 class="title-line-white text-white text-center"> <?= $experience->period ?> </h1>
+                    <h1 class="sub-title text-white text-justify"> <?= $experience->label ?> </h1>
+                    <p class="text text-white text-justify"> <?= $experience->description ?> </p>
+                </div>
 
-            </div>
-
-            <span class="col-xl-1"></span>
-
-            <div class="col-xl-5 col-lg-10 col-md-10 col-sm-10 m-3">
-
-                TEST
-
-            </div>
+            <?php } ?>
 
         </div>
 
     </div>
-
 
 </section>
 

@@ -511,10 +511,26 @@ textarea {
     font-size: 6vh;
     align-items: center;
 }
-.title-line:before, .title-line:after{
+
+.title-line-white {
+    display: flex;
+    flex-direction: row;
+    font-size: 4vh;
+    align-items: center;
+}
+
+.title-line:before, .title-line:after, .title-line-white:before, .title-line-white:after {
     content: "";
     flex: 1 1;
+}
+
+.title-line:before, .title-line:after{
     border-bottom: 2px solid black;
+}
+
+.title-line-white:before, .title-line-white:after{
+    border-bottom: 2px solid rgba(253,254,255,1);
+    margin: 0 1em;
 }
 
 @media only screen and (max-width: 896px) and (orientation: portrait) {
@@ -530,7 +546,7 @@ textarea {
     .title-line {
         font-size: 3vh;
     }
-    .title-line:before, .title-line:after{
+    .title-line:before, .title-line:after, .title-line-white:before, .title-line-white:after{
         border-bottom: none;
     }
 }

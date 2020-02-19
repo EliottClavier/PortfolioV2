@@ -33,8 +33,13 @@ class Home extends MY_Controller {
             $this->data['random_project'] = $projects[$random];
         }
 
+        /* Sélection des données pour la section compétences */
         $this->data['languages'] = $this->portfolioManager->getTable('skills', 'category', 'language');
         $this->data['tools'] = $this->portfolioManager->getTable('skills', 'category', 'tool');
+
+        /* Sélection des données pour la section ma formation et mes expériences professionnelles */
+        $this->data['formations'] = $this->portfolioManager->getTable('timeline', 'category', 'formation');
+        $this->data['experiences'] = $this->portfolioManager->getTable('timeline', 'category', 'experience');
 
         $this->data['subview'] = 'index';
 
