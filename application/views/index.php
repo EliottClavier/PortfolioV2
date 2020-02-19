@@ -1,6 +1,6 @@
 <section class="section-main d-flex align-items-center justify-content-center" id="page-top">
-    <div class="container-fluid animsition mx-3">
-        <div class="row">
+    <div class="container-fluid animsition-overlay  mx-3">
+        <div class="row animsition">
             <div class="col-12 text-center text-white">
 
                 <h1 class="main-title mx-xl-5 pb-3 pb-xl-5">
@@ -9,7 +9,7 @@
 
                 <h2 class="main-sub-title mx-xl-5 pt-3 pt-xl-5">
                     Étudiant DEV/OPS à Campus Academy Nantes.
-                    Recherche un stage dans le domaine du développement pour septembre 2020.
+                    Recherche un stage dans le domaine du développement pour mai 2020.
                 </h2>
 
             </div>

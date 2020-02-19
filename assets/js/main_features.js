@@ -72,9 +72,9 @@ $(document).ready(function() {
 
 
 /* Fonction qui force le retour en haut au refresh de la page */
-/* $(window).on('beforeunload', function() {
+$(window).on('beforeunload', function() {
    $(window).scrollTop(0,0);
-}); */
+});
 
 /* Animations sidebar de la partie compétences */
    $(".progress-bar").css("width", "0px");
