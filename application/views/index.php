@@ -1,6 +1,6 @@
 <section class="section-main d-flex align-items-center justify-content-center" id="page-top">
     <div class="container-fluid animsition-overlay  mx-3">
-        <div class="row animsition">
+        <div class="row animsition-main">
             <div class="col-12 text-center text-white">
 
                 <h1 class="main-title mx-xl-5 pb-3 pb-xl-5">
@@ -20,7 +20,7 @@
 
 <section class="bg-white-modern d-flex align-items-center" id="page-about-me">
 
-    <div class="container-fluid animsition" id="content-about-me">
+    <div class="container-fluid animsition-main" id="content-about-me">
 
         <div class="row align-items-center justify-content-around">
 
@@ -164,14 +164,13 @@
 </section>
 
 
-
 <section class="bg-sky d-flex align-items-center justify-content-center" id="page-timeline">
 
     <div class="container-fluid animsition" id="content-timeline">
 
         <div class="row">
 
-            <div class="col-12">
+            <div class="col-12" id="page-timeline">
 
                 <h1 class="title text-white text-center"> Ma formation </h1>
 

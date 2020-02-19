@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 | URL to your CodeIgniter root. Typically this will be your base URL,
 | WITH a trailing slash:
-|
+|s
 |	http://example.com/
 |
 | WARNING: You MUST set this value!
@@ -28,15 +28,13 @@ $protocol = is_https() ? "https://" : "http://";
 $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : "";
 
 if (is_cli()) {
-	$config['base_url'] = 'https://eliott-clavier.com';
+	$config['base_url'] = '';
 }
 elseif(stristr($host, "localhost") !== FALSE || (stristr($host, '192.168.') !== FALSE) || (stristr($host, '127.0.0') !== FALSE)){
 	$config['base_url'] = $protocol.$host.'/PortfolioV2/';
 }else{
-	$allowed_hosts = array('eliott-clavier.com');
-
+	$allowed_hosts = array('');
 	$config['base_url'] = in_array($host, $allowed_hosts) ? $protocol.$host.'/' : 'Connexion non autorisée.';
-    // $config['base_url'] = 'https://eliott-clavier.com';
 }
 
 /*

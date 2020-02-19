@@ -80,10 +80,10 @@ $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : "";
 if(stristr($host, "localhost") !== FALSE || (stristr($host, '192.168.') !== FALSE) || (stristr($host, '127.0.0') !== FALSE)){
     $db['default'] = array(
         'dsn'	=> '',
-        'hostname' => 'db5000295668.hosting-data.io',
-        'username' => 'dbu402734',
-        'password' => '<44320chauvEC31082001>',
-        'database' => 'dbs288834',
+        'hostname' => 'localhost',
+        'username' => 'root',
+        'password' => '',
+        'database' => 'bdd_portfolio',
         'dbdriver' => 'mysqli',
         'dbprefix' => '',
         'pconnect' => FALSE,
@@ -102,10 +102,10 @@ if(stristr($host, "localhost") !== FALSE || (stristr($host, '192.168.') !== FALS
 }else{
     $db['default'] = array(
         'dsn'	=> '',
-        'hostname' => 'db5000295668.hosting-data.io',
-        'username' => 'dbu402734',
-        'password' => '<44320chauvEC31082001>',
-        'database' => 'dbs288834',
+        'hostname' => 'localhost',
+        'username' => 'root',
+        'password' => '',
+        'database' => 'bdd_portfolio',
         'dbdriver' => 'mysqli',
         'dbprefix' => '',
         'pconnect' => FALSE,

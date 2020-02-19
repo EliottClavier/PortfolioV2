@@ -543,10 +543,10 @@ textarea {
     .text {
         font-size: 2vh;
     }
-    .title-line {
+    .title-line, .title-line-white {
         font-size: 3vh;
     }
-    .title-line:before, .title-line:after, .title-line-white:before, .title-line-white:after{
+    .title-line:before, .title-line:after {
         border-bottom: none;
     }
 }
@@ -561,7 +561,7 @@ textarea {
     .text {
         font-size: 2vw;
     }
-    .title-line {
+    .title-line, .title-line-white {
         font-size: 3vw;
     }
 

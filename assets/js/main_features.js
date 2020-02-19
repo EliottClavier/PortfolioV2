@@ -16,7 +16,9 @@ $(document).ready(function() {
       $('.menu-trigger').find('svg').toggleClass('fa-times fa-bars');
       $('#sidebar').toggleClass('visible-sidebar');
 
-      $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+      $('html, body').animate({
+         scrollTop: $(page).offset().top
+      }, speed);
       return false;
    });
 
@@ -57,15 +59,15 @@ $(document).ready(function() {
             $('#content-project').show();
          }
 
-         if(window.scrollY > px_per_vh * 230) {
+         if(window.scrollY > px_per_vh * 240) {
             $('#content-skills').show();
          }
 
-         if(window.scrollY > px_per_vh * 330) {
+         if(window.scrollY > px_per_vh * 370) {
             $('#content-timeline').show();
          }
 
-         if(window.scrollY > px_per_vh * 430) {
+         if(window.scrollY > px_per_vh * 550) {
             $('#content-contact-recommend').show();
          }
       },false);
