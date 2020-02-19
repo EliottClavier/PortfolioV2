@@ -1,5 +1,5 @@
 <section class="section-main d-flex align-items-center justify-content-center" id="page-top">
-    <div class="container-fluid mx-3">
+    <div class="container-fluid animsition mx-3">
         <div class="row">
             <div class="col-12 text-center text-white">
 
@@ -20,12 +20,12 @@
 
 <section class="bg-white-modern d-flex align-items-center" id="page-about-me">
 
-    <div class="container-fluid" id="content-about-me">
+    <div class="container-fluid animsition" id="content-about-me">
 
         <div class="row align-items-center justify-content-around">
 
             <div class="col-xl-5 col-lg-12 col-md-12 col-12-sm mb-3 mb-xl-0 mb-lg-0 text-center">
-                <img class="rounded-circle mb-3" id="profile-img" src="assets/images/Photo_modif.png" alt="Photo de présentation" />
+                <img class="rounded-circle mb-3" id="profile-img" src="assets/images/Photo_modif.png" alt="Photo de présentation"/>
                 <form method="get" action="assets/CV.pdf">
                     <button type="submit" class="btn btn-flame btn-xl">
                          Télécharger mon CV
@@ -51,7 +51,7 @@
 
 <section class="bg-sun d-flex align-items-center justify-content-center" id="page-projects">
 
-    <div class="container-fluid" id="content-project">
+    <div class="container-fluid animsition" id="content-project">
 
         <h1 class="title text-center text-white mb-5"> Un de mes divers projets ... </h1>
 
@@ -91,7 +91,7 @@
 
                 <h1 class="sub-title text-white"> Et pourquoi ne pas découvrir mes projets ? </h1>
 
-                <a href="<?= base_url() . 'project' ?>" class="btn btn-xl btn-white m-3"> C'est parti !</a>
+                <a href="<?= base_url() . 'project' ?>" class="btn btn-xl btn-white m-3 animsition-link"> C'est parti !</a>
 
             </div>
 
@@ -104,7 +104,7 @@
 
 <section class="bg-white-modern d-flex align-items-center justify-content-center" id="page-skills">
 
-    <div class="container-fluid" id="content-skills">
+    <div class="container-fluid animsition" id="content-skills">
 
             <h1 class="title text-center"> Mes compétences </h1>
 
@@ -166,33 +166,65 @@
 
 <section class="bg-sky d-flex align-items-center justify-content-center" id="page-timeline">
 
-    <div class="container-fluid" id="content-timeline">
+    <div class="container-fluid animsition" id="content-timeline">
 
         <div class="row">
 
             <div class="col-12">
 
-                <h1 class="title text-white text-center"> Ma formation et <br/> mes expériences profesionnelles </h1>
+                <h1 class="title text-white text-center"> Ma formation et ... </h1>
 
             </div>
 
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center align-items-center">
 
-            <!-- TEST  -->
+            <div class="col-xl-5 col-lg-10 col-md-10 col-sm-10 m-3">
+
+                TEST
+
+            </div>
+
+            <span class="col-xl-1"></span>
+
+            <div class="col-xl-5 col-lg-10 col-md-10 col-sm-10 m-3">
+
+                TEST
+
+            </div>
+
+        </div>
+
+        <h1 class="title text-white text-center"> ... mes expériences profesionnelles </h1>
+
+        <div class="row justify-content-center align-items-center">
+
+            <div class="col-xl-5 col-lg-10 col-md-10 col-sm-10 m-3">
+
+                TEST
+
+            </div>
+
+            <span class="col-xl-1"></span>
+
+            <div class="col-xl-5 col-lg-10 col-md-10 col-sm-10 m-3">
+
+                TEST
+
+            </div>
 
         </div>
 
     </div>
 
-    
+
 </section>
 
 
 <section class="bg-white-modern d-flex align-items-center" id="page-contact-recommend">
 
-    <div class="container-fluid" id="content-contact-recommend">
+    <div class="container-fluid animsition" id="content-contact-recommend">
 
         <div class="row justify-content-center align-items-center">
 
@@ -202,7 +234,7 @@
 
                 <p class="sub-title text-justify">
                     Afin de me contacter, vous pouvez remplir le formulaire ci-dessous. Votre message me sera alors transmis et
-                    la réponse envoyée dans les plus brefs délais. Vous avez également à votre disposition mes autres moyens de contacts plus bas.
+                    la réponse envoyée dans les plus brefs délais. Vous avez également à votre disposition mes autres moyens de contacts dans le menu latéral.
                 </p>
 
                 <div class="text-center">
@@ -393,7 +425,7 @@
 
                 <h1 class="sub-title"> Un coup d'oeil sur mes recommendations ? </h1>
 
-                <a href="<?= base_url() . 'recommend' ?>" class="btn btn-xl btn-flame m-3"> C'est parti !</a>
+                <a href="<?= base_url() . 'recommend' ?>" class="btn btn-xl btn-flame m-3 animsition-link"> C'est parti !</a>
 
             </div>
 

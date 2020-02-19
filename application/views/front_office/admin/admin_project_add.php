@@ -1,8 +1,8 @@
 <?php if($this->session->userdata('user')) { ?>
 
-<div class="container-fluid">
+<div class="container-fluid animsition">
 
-    <a class="go-back justify-content-center align-items-center rounded p-4" href="<?= base_url() . 'admin/project'?>">
+    <a class="go-back justify-content-center align-items-center rounded p-4 animsition-link" href="<?= base_url() . 'admin/project'?>">
         <i class="fas fa-arrow-left"></i>
         <p class="sub-title text-white ml-2 mb-0"> Retour à la section projet </p>
     </a>
@@ -11,7 +11,7 @@
 
 <section class="bg-sky d-flex align-items-center justify-content-center" id="page-top" name="section-admin">
 
-    <div class="container-fluid m-2">
+    <div class="container-fluid animsition m-2">
 
         <h1 class="title text-white text-center"> Créer un projet </h1>
 

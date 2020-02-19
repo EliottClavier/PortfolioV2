@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div class="container-fluid animsition">
 
-    <a class="go-back justify-content-center align-items-center rounded p-3 p-xl-3 p-lg-5" href="<?= base_url()?>">
+    <a class="animsition-link go-back justify-content-center align-items-center rounded p-3 p-xl-3 p-lg-5" href="<?= base_url()?>">
         <i class="fas fa-arrow-left"></i>
         <p class="sub-title text-white ml-2 mb-0"> Revenir au hub </p>
     </a>
@@ -9,7 +9,7 @@
 
 <section class="bg-white-modern d-flex align-items-center justify-content-center" id="page-top" name="section-admin">
 
-    <div class="container-fluid m-2">
+    <div class="container-fluid animsition m-2">
 
         <h1 class="title text-center"> Découvrir mes projets </h1>
 

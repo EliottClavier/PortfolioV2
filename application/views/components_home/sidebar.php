@@ -8,8 +8,7 @@
             <li><a class="js-scrollTo sub-title" href="#page-skills"> Mes compétences </a></li>
             <li><a class="js-scrollTo sub-title" href="#page-timeline"> Ma formation et <br/> mes expériences profesionnelles </a></li>
             <li><a class="js-scrollTo sub-title" href="#page-contact-recommend"> Me contacter / <br> Me recommander </a></li>
-
-
+            
             <li class="row justify-content-center">
 
                 <a class="sub-title display-0" id="phone">06 02 06 56 35</a>

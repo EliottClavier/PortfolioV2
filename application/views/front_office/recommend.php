@@ -1,5 +1,5 @@
-<div class="container-fluid">
-    <a class="go-back justify-content-center align-items-center rounded p-3 p-xl-3 p-lg-5" href="<?= base_url()?>">
+<div class="container-fluid animsition">
+    <a class="go-back justify-content-center align-items-center rounded p-3 p-xl-3 p-lg-5 animsition-link" href="<?= base_url()?>">
         <i class="fas fa-arrow-left"></i>
         <p class="sub-title text-white ml-2 mb-0"> Revenir au hub </p>
     </a>
@@ -7,7 +7,7 @@
 
 <section class="bg-extern d-flex align-items-center justify-content-center" id="page-top" name="section-admin">
 
-    <div class="container-fluid m-2">
+    <div class="container-fluid m-2 animsition">
 
         <h1 class="title text-white text-center"> Mur des recommandations </h1>
 

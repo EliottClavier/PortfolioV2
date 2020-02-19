@@ -50,23 +50,23 @@ $(document).ready(function() {
          }
 
          if(window.scrollY > px_per_vh * 50) {
-            $('#content-about-me').fadeIn(800);
+            $('#content-about-me').show();
          }
 
          if(window.scrollY > px_per_vh * 130) {
-            $('#content-project').fadeIn(800);
+            $('#content-project').show();
          }
 
          if(window.scrollY > px_per_vh * 230) {
-            $('#content-skills').fadeIn(800);
+            $('#content-skills').show();
          }
 
          if(window.scrollY > px_per_vh * 330) {
-            $('#content-timeline').fadeIn(800);
+            $('#content-timeline').show();
          }
 
          if(window.scrollY > px_per_vh * 430) {
-            $('#content-contact-recommend').fadeIn(800)
+            $('#content-contact-recommend').show();
          }
       },false);
 

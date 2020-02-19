@@ -2,7 +2,7 @@
 
     <?php if(!$this->session->userdata('user')) { ?>
 
-        <div class="container">
+        <div class="container-fluid animsition">
 
             <div class="row justify-content-center text-white">
 
@@ -53,7 +53,7 @@
 
                     <div class="col-xl-7">
 
-                        <a class="btn btn-outline-dark btn-lg m-2"  href="<?= base_url() ?>">
+                        <a class="btn btn-outline-dark btn-lg m-2 animsition-link"  href="<?= base_url() ?>">
                             Retour à l'accueil
                         </a>
 
@@ -72,7 +72,7 @@
     <?php if($this->session->userdata('user')) { ?>
 
 
-    <div class="container-fluid m-3">
+    <div class="container-fluid animsition m-3">
         <div class="row text-center justify-content-center align-items-center">
 
             <div class="col-xl-6 col-lg-10 col-md-10 col-sm-10 my-3">
@@ -93,7 +93,7 @@
                             </button>
                         </div>
                         <div class="row justify-content-center">
-                            <a class="btn btn-primary btn-lg text"  href="<?= base_url() ?>">
+                            <a class="btn btn-primary btn-lg text animsition-link"  href="<?= base_url() ?>">
                                 Retour vers l'acceuil
                             </a>
                         </div>
@@ -203,7 +203,7 @@
 
                         <p class="sub-title card-text"> <span class="badge badge-danger"> <?= $recommend_pending->total ?> </span> recommendations en attentes </p>
                         <p class="sub-title card-text"> <span class="badge badge-primary"> <?= $recommend_verified->total ?> </span> recommendations visibles </p>
-                        <a href="<?= base_url() . 'admin/recommend' ?>" class="btn btn-dark text"> Panneau d'activation des recommandations </a>
+                        <a class="btn btn-dark text animsition-link" href="<?= base_url() . 'admin/recommend' ?>"> Panneau d'activation des recommandations </a>
                     </div>
                 </div>
             </div>
@@ -220,7 +220,7 @@
                         <p class="sub-title card-text"> <span class="badge badge-success"> <?= $project_completed->total ?> </span> projets complétés </p>
                         <p class="sub-title card-text"> <span class="badge badge-primary"> <?= $project_progress->total ?> </span> projets en cours </p>
                         <p class="sub-title card-text"> <span class="badge badge-dark"> <?= $project_offline->total ?> </span> projets n'apparaissent pas sur le site </p>
-                        <a href="<?= base_url() . 'admin/project' ?>" class="btn btn-dark text"> Panneau de modification des projets </a>
+                        <a class="btn btn-dark text animsition-link" href="<?= base_url() . 'admin/project' ?>"> Panneau de modification des projets </a>
                     </div>
                 </div>
             </div>
