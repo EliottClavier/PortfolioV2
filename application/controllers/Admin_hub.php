@@ -379,7 +379,10 @@ class Admin_hub extends MY_Controller {
     /* Fonction callback permettant de savoir si le nom de l'utilisateur est déjà pris */
     public function username_check($data) {
 
-        $pseudoChecker = $this->adminManager->checkExistUser($data);
+        $dateArray = array(
+            'admin_name' => $data,
+        );
+        $pseudoChecker = $this->adminManager->checkExistUser($dateArray);
 
         if (!empty($pseudoChecker)) {
             $this->form_validation->set_message('username_check', 'Cet identifiant existe déjà.');
