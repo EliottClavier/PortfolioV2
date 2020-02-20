@@ -1,3 +1,5 @@
+<!-- Vue de préchargement des CSS, JS et du contenu PHP/HTML de la page -->
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,3 +1,4 @@
+// Fonctions d'animation grâce au plugins animsition
 $(".animsition-main").animsition({
     inClass: 'zoom-in',
     outClass: 'zoom-out',

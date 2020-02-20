@@ -26,6 +26,7 @@ class Project  extends MY_Controller {
             'assets/js/projects'
         ));
 
+        /* On différencie les projets ayant un statut en cours et un statut achevés */
         $this->data['completed_projects'] = $this->portfolioManager->getTable('project', 'status', 'completed');
         $this->data['progress_projects'] = $this->portfolioManager->getTable('project', 'status', 'progress');
 

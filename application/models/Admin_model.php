@@ -18,8 +18,8 @@ class Admin_model extends CI_Model
 
 	}
 
+	/* Fonction vérifiant si un identifiant existe déjà */
     public function checkExistUser($where) {
-
 
         $query = $this->db->select('*')
             ->from('admin_logs')
@@ -35,6 +35,16 @@ class Admin_model extends CI_Model
 
     }
 
+    /* Fonction de cryptage de mot de passe */
+    public function cipherPassword($password) {
+
+        $cipherPassword = $this->encryption->encrypt($password);
+
+        return $cipherPassword;
+
+    }
+
+    /* Fonction qui compare le mot de passe envoyé dans le formulaire de connexion au panel admin avec celui encrypté dans la base de données */
     public function hash_verify($p_bdd, $p_input){
         $password_input = $this->encryption->encrypt($p_input);
         $password_output = $this->encryption->decrypt($password_input);
@@ -48,6 +58,7 @@ class Admin_model extends CI_Model
 
     }
 
+    /* Fonction qui permet de compter le nombre de recommandations / projets and fonction de son statut dans la table */
     public function adminCountStatus($table, $type) {
         $query = $this->db->select('status, count(*) AS total')
             ->from($table)
@@ -56,6 +67,8 @@ class Admin_model extends CI_Model
         return $query->row();
 
     }
+
+    /* Fonction qui permet d'update des données dans la BDD */
     public function adminUpdate($columnName, $data, $id, $table) {
 
         $this->db->set($columnName, $data)

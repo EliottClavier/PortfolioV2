@@ -1,5 +1,6 @@
 <section class="bg-sky d-flex align-items-center justify-content-center" name="section-admin">
 
+    <!-- Si l'utilisateur n'est pas connecté, alors on affiche le formulaire de connexion  -->
     <?php if(!$this->session->userdata('user')) { ?>
 
         <div class="container-fluid animsition">
@@ -10,6 +11,7 @@
 
             </div>
 
+            <!-- Formulaire de connexion -->
             <form class="form-admin-login">
 
                 <div class="row justify-content-center">
@@ -52,11 +54,12 @@
                 <div class="row form-group text-center justify-content-center">
 
                     <div class="col-xl-7">
-
+                        <!-- Bouton retour à l'accueil -->
                         <a class="btn btn-outline-dark btn-lg m-2 animsition-link"  href="<?= base_url() ?>">
                             Retour à l'accueil
                         </a>
 
+                        <!-- Bouton envoyer le formulaire  -->
                         <button type="button" class="btn btn-dark btn-lg btn-admin-login"> Connexion </button>
 
                     </div>
@@ -67,11 +70,12 @@
 
         </div>
 
-    <?php } ?>
+<?php } ?>
 
-    <?php if($this->session->userdata('user')) { ?>
+<!-- Si l'utilisateur est connecté -->
+<?php if($this->session->userdata('user')) { ?>
 
-
+    <!-- Card de modification des informations utilisateurs -->
     <div class="container-fluid animsition m-3">
         <div class="row text-center justify-content-center align-items-center">
 
@@ -85,26 +89,32 @@
 
                     <div class="card-body">
                         <div class="row justify-content-center">
+                            <!-- Bouton de lancement du modal de moficiation de l'identifiant utilisateur -->
                             <button class="btn btn-dark btn-update-user-id text m-2" data-toggle="modal" data-target="#modalUpdateUserName">
                                 Changer son identifiant
                             </button>
+
+                            <!-- Bouton de lancement du modal de moficiation du mot de passe utilisateur -->
                             <button class="btn btn-dark btn-update-user-password text m-2" data-toggle="modal" data-target="#modalUpdateUserPassword">
                                 Changer son mot de passe
                             </button>
                         </div>
                         <div class="row justify-content-center">
+
+                            <!-- Bouton de redirection vers l'accueil sans deconnexion -->
                             <a class="btn btn-primary btn-lg text animsition-link"  href="<?= base_url() ?>">
                                 Retour vers l'acceuil
                             </a>
                         </div>
                     </div>
 
+                    <!-- Affichage de la dernière date de connexion -->
                     <div class="card-footer">
                         <p class="text text-dark"> <?= 'Dernière connexion le ' . $this->session->userdata('lastConnection') ?> </p>
                     </div>
                 </div>
 
-                <!-- Modal Identifiant -->
+                <!-- Modal Modification Identifiant -->
                 <div class="modal fade" id="modalUpdateUserName" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -143,7 +153,7 @@
 
                 </div>
 
-                <!-- Modal Mot de passe -->
+                <!-- Modal Modification Mot de passe -->
                 <div class="modal fade" id="modalUpdateUserPassword" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -190,6 +200,8 @@
 
 
         <div class="row text-center justify-content-center align-items-center">
+
+            <!-- Card d'accès au panel admin - recommandation -->
             <div class="col-xl-6 col-lg-10 col-md-10 col-sm-10 my-3">
                 <div class="card p-3">
 
@@ -200,14 +212,16 @@
                     </div>
 
                     <div class="card-body">
-
+                        <!-- On affiche le nombre de recommandation en fonction de son statut  -->
                         <p class="sub-title card-text"> <span class="badge badge-danger"> <?= $recommend_pending->total ?> </span> recommendations en attentes </p>
                         <p class="sub-title card-text"> <span class="badge badge-primary"> <?= $recommend_verified->total ?> </span> recommendations visibles </p>
+                        <!-- Accès au panneau d'activation des recommandations -->
                         <a class="btn btn-dark text animsition-link" href="<?= base_url() . 'admin/recommend' ?>"> Panneau d'activation des recommandations </a>
                     </div>
                 </div>
             </div>
 
+            <!-- Card d'accès au panel admin - project -->
             <div class="col-xl-6 col-lg-10 col-md-10 col-sm-10 my-3">
                 <div class="card p-3">
                     <div class="card-header">
@@ -217,9 +231,12 @@
                     </div>
 
                     <div class="card-body">
+                        <!-- On affiche le nombre de project en fonction de son statut  -->
                         <p class="sub-title card-text"> <span class="badge badge-success"> <?= $project_completed->total ?> </span> projets complétés </p>
                         <p class="sub-title card-text"> <span class="badge badge-primary"> <?= $project_progress->total ?> </span> projets en cours </p>
                         <p class="sub-title card-text"> <span class="badge badge-dark"> <?= $project_offline->total ?> </span> projets n'apparaissent pas sur le site </p>
+
+                        <!-- Accès au panneau de modification des projects -->
                         <a class="btn btn-dark text animsition-link" href="<?= base_url() . 'admin/project' ?>"> Panneau de modification des projets </a>
                     </div>
                 </div>
@@ -227,6 +244,6 @@
 
         </div>
     </div>
-    <?php } ?>
+<?php } ?>
 
 </section>

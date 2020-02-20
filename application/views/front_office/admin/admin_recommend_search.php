@@ -1,3 +1,5 @@
+<!-- Si il n'y a aucune recommandation à gérer alors on l'annonce -->
+
 <?php  if (empty($recommendations)) { ?>
 
     <h1 class="title text-white"> Rien à afficher ici ! </h1>
@@ -9,6 +11,7 @@ foreach ($recommendations as $recommendation) {
 ?>
     <div class="col-xl-5 col-lg-11 col-md-11 col-sm-11 m-3">
 
+        <!-- Card d'affichage d'une recommandation -->
         <div class="card" style="box-shadow: 0.25rem 0.5rem 0.5rem rgba(0,0,0,0.5);">
 
             <div class="card-header">
@@ -61,7 +64,7 @@ foreach ($recommendations as $recommendation) {
 
         </div>
 
-        <!-- Modal Message -->
+        <!-- Modal Message Recommandation -->
         <div class="modal fade" id="modalMessageSearch<?= $recommendation->id ?>" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">

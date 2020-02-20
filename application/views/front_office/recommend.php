@@ -1,3 +1,4 @@
+<!-- Bouton de retour au hub prinicipal  -->
 <div class="container-fluid animsition">
     <a class="go-back justify-content-center align-items-center rounded p-3 p-xl-3 p-lg-5 animsition-link" href="<?= base_url()?>">
         <i class="fas fa-arrow-left"></i>
@@ -13,6 +14,7 @@
 
         <div class="row justify-content-center m-xl-5 m-lg-3 m-md-0 m-sm-0">
 
+            <!-- Si il n'y a aucune recommandation à afficher alors on l'annonce -->
                 <?php  if (empty($recommendations)) { ?>
 
                     <h1 class="title text-white"> Rien à afficher ici ! </h1>
@@ -20,6 +22,7 @@
                 <?php } ?>
 
                 <?php
+                    // On mélange les reocmmendations obtenues pour ne jamais obtenir le même ordre dans l'affichage
                     shuffle($recommendations);
                     foreach ($recommendations as $recommendation) {
                 ?>

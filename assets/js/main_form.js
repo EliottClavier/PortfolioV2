@@ -1,3 +1,4 @@
+// Fonction qui envoie les champs du formulaire de contact
 $('button.btn-contact-send').on('click', function() {
 
     $('#modalContact').modal("show");
@@ -43,6 +44,7 @@ $('button.btn-contact-send').on('click', function() {
 
 });
 
+// Fonction qui envoie les champs du formulaire de recommandation
 $('button.btn-recommend-send').on('click', function() {
 
     $('#modalRecomend').modal("show");

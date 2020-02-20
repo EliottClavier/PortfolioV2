@@ -31,6 +31,7 @@ class Admin_project_add extends MY_Controller {
 
     }
 
+    /* Fonction d'ajout d'un projet dans la BDD en fonction des données reçues du formulaire correspondant */
     public function addProject() {
 
         $rulesArray = array(
@@ -74,6 +75,7 @@ class Admin_project_add extends MY_Controller {
 
         } else {
 
+            /* On stocke les données reçues dans un tableau avec comme clés les noms de colonnes dans la table project */
             $data = array(
                 'name' => $this->input->post('addProjectName'),
                 'description' => $this->input->post('addProjectDesc'),
@@ -82,6 +84,7 @@ class Admin_project_add extends MY_Controller {
                 'status' => $this->input->post('addProjectStatus'),
             );
 
+            /* On insère les données du tableau dans la table project*/
             $this->portfolioManager->insertDB('project', $data);
         }
     }

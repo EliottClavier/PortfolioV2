@@ -13,6 +13,7 @@
 
         <h1 class="title text-center"> Découvrir mes projets </h1>
 
+        <!-- On affiche les projets en cours -->
         <div class="row justify-content-center my-3">
             <div class="col-10 title-line">
                 <button class="btn btn-white btn-projects-in-progress title-line text-center border-black">
@@ -23,6 +24,7 @@
 
             <div class="col-10 m-3 projects-in-progress display-0">
 
+                <!-- Si il n'y a aucun projet à afficher alors on l'annonce -->
                 <?php if (empty($progress_projects)) { ?>
 
                     <h1 class="title"> Rien à afficher ici ! </h1>
@@ -58,6 +60,8 @@
             </div>
         </div>
 
+
+        <!-- On affiche les projets achevés -->
         <div class="row justify-content-center my-3">
             <div class="col-10 title-line">
                 <button class="btn btn-white btn-projects-completed title-line text-center border-black">

@@ -1,3 +1,5 @@
+<!-- Section d'accueil -->
+
 <section class="section-main d-flex align-items-center justify-content-center" id="page-top">
     <div class="container-fluid animsition-overlay  mx-3">
         <div class="row animsition-main">
@@ -17,13 +19,14 @@
     </div>
 </section>
 
-
+<!-- Section Qui suis-je ? -->
 <section class="bg-white-modern d-flex align-items-center" id="page-about-me">
 
-    <div class="container-fluid animsition-main" id="content-about-me">
+    <div class="container-fluid animsition" id="content-about-me">
 
         <div class="row align-items-center justify-content-around">
 
+            <!-- Mon Image et un bouton pour télécharger mon CV en .pdf -->
             <div class="col-xl-5 col-lg-12 col-md-12 col-12-sm mb-3 mb-xl-0 mb-lg-0 text-center">
                 <img class="rounded-circle mb-3" id="profile-img" src="assets/images/Photo_modif.png" alt="Photo de présentation"/>
                 <form method="get" action="assets/CV.pdf">
@@ -33,6 +36,7 @@
                 </form>
             </div>
 
+            <!-- Une courte description du but du site + de moi même -->
             <div class="col-xl-6 col-lg-10 col-md-10 col-10-sm m-md-3 m-sm-3 px-xl-5 px-lg-5 border-flame-left" style="">
                 <h1 class="title text-center"> Qui suis-je ? </h1>
                 <p class="sub-title text-justify">
@@ -49,6 +53,7 @@
 
 </section>
 
+<!-- Section Mes projets -->
 <section class="bg-sun d-flex align-items-center justify-content-center" id="page-projects">
 
     <div class="container-fluid animsition" id="content-project">
@@ -56,9 +61,9 @@
         <h1 class="title text-center text-white mb-5"> Un de mes divers projets ... </h1>
 
         <div class="row justify-content-center align-items-center text-white">
-            <?php
 
-            if (!(isset($random_project))) { ?>
+            <!-- Dans le cas où aucun projet n'aurait été obtenu, on l'annonce -->
+            <?php if (!(isset($random_project))) { ?>
 
                 <div class="col-xl-6 col-lg-10 col-md-10 col-sm-10 ">
 
@@ -66,7 +71,10 @@
 
                 </div>
 
-            <?php } else { ?>
+            <?php
+                } else {
+                // Sinon, on affiche le projet sélectionné au hasard dans la base de données (donc le statut n'est pas défini comme hors-ligne)
+            ?>
 
                 <div class="col-xl-4 col-lg-10 col-md-10 col-sm-10 ">
 
@@ -91,6 +99,7 @@
 
                 <h1 class="sub-title text-white"> Et pourquoi ne pas découvrir mes projets ? </h1>
 
+                <!-- Bouton de redirection vers la page projets, où tous mes projets sont disponibles -->
                 <a href="<?= base_url() . 'project' ?>" class="btn btn-xl btn-white m-3 animsition-link"> C'est parti !</a>
 
             </div>
@@ -108,6 +117,7 @@
 
             <h1 class="title text-center"> Mes compétences </h1>
 
+            <!-- Dans le cas où aucune compétence de type langages de programmation n'aurait été obtenu, on l'annonce -->
             <div class="row justify-content-center align-items-center">
                 <?php if (!(isset($languages))) { ?>
 
@@ -122,11 +132,17 @@
 
             <div class="row justify-content-center align-items-center">
 
+                <!-- On affiche chaque compétences de type langages de programmations dans une progressbar  -->
                 <?php foreach ($languages as $language) { ?>
 
                     <div class="col-xl-5 col-lg-10 col-md-10 col-sm-10 m-3">
 
+                        <!--
+                            Pour le fond de la progress bar, on prend la couleur indiqué dans la tableau en
+                            Hexadeciaml auquel on ajoute à la fin CC, qui équivaut à une opacité de 0.7
+                        -->
                         <div class="progress" style="background-color: <?= $language->associated_color . 'CC'?>;">
+                            <!-- Pour l'avancée animée de la progress bar, on envoie la largeur voulue à une fonction jQuery dans l'attribut data-width -->
                             <div class="progress-bar" style="background-color: <?= $language->associated_color ?>;" data-width="<?= $language->advancement?>">
                                 <h1 class="sub-title m-0">  <?= $language->name ?> </h1>
                             </div>
@@ -137,12 +153,23 @@
                 <?php } ?>
             </div>
 
+
+        <!-- Dans le cas où aucune compétence de type outils n'aurait été obtenu, on l'annonce -->
+        <div class="row justify-content-center align-items-center">
+            <?php if (!(isset($tools))) { ?>
+
+                <h1 class="title text-center"> Rien à afficher ici ! </h1>
+
+            <?php } ?>
+        </div>
+
         <div class="row justify-content-center align-items-center">
             <h3 class="sub-title text-center"> Environnements de travail et outils </h3>
         </div>
 
         <div class="row justify-content-center align-items-center">
 
+            <!-- On affiche chaque compétences de type outils dans une progressbar  -->
             <?php foreach ($tools as $tool) { ?>
 
                 <div class="col-xl-5 col-lg-10 col-md-10 col-sm-10 m-3">
@@ -180,6 +207,7 @@
 
         <div class="row justify-content-center align-items-center">
 
+            <!-- On affiche chaque formation stockée dans la BDD  -->
             <?php foreach ($formations as $formation) { ?>
 
                 <div class="col-xl-7 col-lg-10 col-md-10 col-sm-10 my-3">
@@ -192,10 +220,11 @@
 
         </div>
 
-        <h1 class="title text-white text-center mt-xl-5"> Mes expériences profesionnelles </h1>
+        <h1 class="title text-white text-center mt-xl-5"> Mes expériences professionnelles </h1>
 
         <div class="row justify-content-center align-items-center">
 
+            <!-- On affiche chaque expériences stockées dans la BDD  -->
             <?php foreach ($experiences as $experience) { ?>
 
                 <div class="col-xl-7 col-lg-10 col-md-10 col-sm-10 my-3">
@@ -219,6 +248,7 @@
 
         <div class="row justify-content-center align-items-center">
 
+            <!-- ME CONTACTER -->
             <div class="col-xl-5 col-lg-10 col-md-10 col-10-sm">
 
                 <h1 class="sub-title text-center mb-3"> Comment me contacter ? </h1>
@@ -230,12 +260,13 @@
 
                 <div class="text-center">
 
+                    <!-- Bouton de lancement du modal de contact -->
                     <button type="button" class="btn btn-xl btn-flame m-4" data-toggle="modal" data-target="#modalContact">
                         Me contacter
                     </button>
 
                 </div>
-                <!-- Modal -->
+                <!-- Modal Me Contacter -->
 
                 <div class="modal fade" id="modalContact" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -305,6 +336,7 @@
 
             <span class="col-xl-1 my-2 text-center"></span>
 
+            <!-- ME RECOMMANDER -->
             <div class="col-xl-5 col-lg-10 col-md-10 col-10-sm">
 
                 <h1 class="sub-title text-center mb-3"> Pourquoi me recommander ? </h1>
@@ -316,13 +348,14 @@
 
                 <div class="text-center">
 
+                    <!-- Bouton de lancement du modal de recommandation -->
                     <button type="button" class="btn btn-xl btn-flame m-4" data-toggle="modal" data-target="#modalRecommend">
                         Me recommander
                     </button>
 
                 </div>
 
-                <!-- Modal -->
+                <!-- Modal Me Recommander -->
 
                 <div class="modal fade" id="modalRecommend" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -416,6 +449,7 @@
 
                 <h1 class="sub-title"> Un coup d'oeil sur mes recommendations ? </h1>
 
+                <!-- Bouton de redirection vers la page des recommandations -->
                 <a href="<?= base_url() . 'recommend' ?>" class="btn btn-xl btn-flame m-3 animsition-link"> C'est parti !</a>
 
             </div>

@@ -24,15 +24,9 @@ class Recommend extends MY_Controller {
             'assets/js/animsition',
         ));
 
-        /*
-        $format_fr = implode('-',array_reverse  (explode('/',$format_us)));
-        echo  $format_fr;
-        */
-
-
+        /* On récupère les recommendations validées */
         $this->data['recommendations'] = $this->portfolioManager->getTable('recommend', 'status', 'verified');
 
-        // die(var_dump($this->data['recommendations']));
 
         $this->data['subview'] = 'front_office/recommend';
 

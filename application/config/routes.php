@@ -57,30 +57,39 @@ $route['translate_uri_dashes'] = FALSE;
  * Formations / Modules
  */
 
+/* Routes pages index */
 $route['attempt-contact'] = 'home/formContact';
 $route['attempt-recommend'] = 'home/formRecommend';
 
+/* Route page recommandations */
 $route['recommend'] = 'recommend';
 
+/* Route page projet*/
 $route['project'] = 'project';
 
-$route['admin'] = 'admin_hub/index';
+/* Route hub administration */
+    $route['admin'] = 'admin_hub/index';
 
-$route['admin/login-attempt'] = 'admin_hub/login_attempt';
-$route['admin/logout'] = 'admin_hub/logout';
+    /* Route hub administration connexion  */
+    $route['admin/login-attempt'] = 'admin_hub/login_attempt';
+    $route['admin/logout'] = 'admin_hub/logout';
 
-$route['admin/update-username-attempt'] = 'admin_hub/modifyUserName';
-$route['admin/update-password-attempt'] = 'admin_hub/modifyUserPassword';
+    /* Route update informations utilisateurs - administration */
+    $route['admin/update-username-attempt'] = 'admin_hub/modifyUserName';
+    $route['admin/update-password-attempt'] = 'admin_hub/modifyUserPassword';
 
-$route['admin/recommend'] = 'admin_hub/adminRecommend';
-$route['admin/recommend-switch-status'] = 'admin_hub/adminRecommendSwitchStatus';
-$route['admin/recommend-select-order'] = 'admin_hub/adminRecommendGetOrder';
+    /* Route recommandations - administration */
+    $route['admin/recommend'] = 'admin_hub/adminRecommend';
+    $route['admin/recommend-switch-status'] = 'admin_hub/adminRecommendSwitchStatus';
+    $route['admin/recommend-select-order'] = 'admin_hub/adminRecommendGetOrder';
 
-$route['admin/project'] = 'admin_hub/adminProject';
-$route['admin/project-select-order'] = 'admin_hub/adminProjectGetOrder';
-$route['admin/project-edit-get-view'] = 'admin_hub/adminProjectGetViewModal';
-$route['admin/project-edit-attempt'] = 'admin_hub/adminProjectUpdate';
+    /* Route projets - administration */
+    $route['admin/project'] = 'admin_hub/adminProject';
+    $route['admin/project-select-order'] = 'admin_hub/adminProjectGetOrder';
+    $route['admin/project-edit-get-view'] = 'admin_hub/adminProjectGetViewModal';
+    $route['admin/project-edit-attempt'] = 'admin_hub/adminProjectUpdate';
 
+/* Route page ajout de project */
 $route['admin/project-add'] = 'admin_project_add';
 $route['admin/project-add-attempt'] = 'admin_project_add/addProject';
 

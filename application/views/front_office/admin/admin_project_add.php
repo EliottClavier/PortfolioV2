@@ -1,5 +1,6 @@
 <?php if($this->session->userdata('user')) { ?>
 
+<!-- Bouton de retour au panneau de modification des projets  -->
 <div class="container-fluid animsition">
 
     <a class="go-back justify-content-center align-items-center rounded p-4 animsition-link" href="<?= base_url() . 'admin/project'?>">
@@ -15,6 +16,7 @@
 
         <h1 class="title text-white text-center"> Créer un projet </h1>
 
+        <!-- Formulaire de création de projet  -->
         <form class="form-add-project">
 
             <div class="row justify-content-center">

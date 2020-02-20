@@ -1,5 +1,6 @@
 <?php if($this->session->userdata('user')) { ?>
 
+<!-- Bouton de retour au hub admin -->
 <div class="container-fluid animsition">
 
     <a class="go-back justify-content-center align-items-center rounded p-4 animsition-link" href="<?= base_url() . 'admin'?>">
@@ -9,6 +10,7 @@
 
 </div>
 
+<!-- Bouton vers le formulaire de creation de projet -->
 <div class="container-fluid animsition">
 
     <a class="add-project justify-content-center align-items-center rounded animsition-link" href="<?= base_url() . 'admin/project-add'?>">
@@ -28,6 +30,7 @@
                 <div class="col-xl-6 col-lg-11 col-md-11 col-sm-11 my-3">
                     <div class="input-group mb-3">
 
+                        <!-- Selection du mode de tri des projets -->
                         <label for="selectOrder"></label>
                         <select class="custom-select select-order" name="selectOrder" id="selectOrder">
                             <option selected> -- Mode de tri -- </option>
@@ -59,6 +62,7 @@
 
 </section>
 
+<!-- Si l'utilisateur n'est pas connecté, il est redirigé vers la page principale du panel admin au il devra se connecter  -->
 <?php } else {
 
     header('Location: ../admin');

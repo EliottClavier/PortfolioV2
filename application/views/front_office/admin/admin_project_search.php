@@ -1,3 +1,5 @@
+<!-- Si il n'y a aucun projet à gérer alors on l'annonce -->
+
 <?php  if (empty($projects)) { ?>
 
     <h1 class="title"> Rien à afficher ici ! </h1>
@@ -10,6 +12,7 @@
 
     <div class="col-xl-5 col-lg-11 col-md-11 col-sm-11 m-3">
 
+        <!-- Card de prévisualisation d'un projet avec son nom, son image et son status -->
         <div class="card" style="box-shadow: 0.25rem 0.5rem 0.5rem rgba(0,0,0,0.5);">
 
             <div class="card-header">
@@ -42,6 +45,7 @@
 
                 <div class="row justify-content-center align-items-center">
 
+                    <!-- Bouton déclencheur du modal de modification de projet correspondant -->
                     <div class="col-8 text-center">
                         <button class="btn btn-dark m-2 btn-edit-project" data-id="<?= $project->id ?>">
                             Éditer le projet
@@ -66,7 +70,7 @@
 
                         <div class="modal-body justify-content-center">
 
-                            <!-- Chargement du modal  -->
+                            <!-- Chargement du modal (admin_project_edit) -->
 
                         </div>
                         <div class="modal-footer">

@@ -10,12 +10,14 @@ class Portfolio_model extends CI_Model
 
 	}
 
+	/* Fonction d'insertion de données */
 	public function insertDB($table, $data) {
 
 	    $this->db->insert($table, $data);
 
     }
 
+    /* Fonction complète permettant de faire des requêtes de selections dans le BDD avec plusiuers paramètres ou non */
     public function getTable($table, $where = false, $value = false, $order = false, $format = 'array') {
 
 	    $this->db->select('*')
@@ -41,6 +43,7 @@ class Portfolio_model extends CI_Model
 
     }
 
+    /* Fonction utilise la fonction getTable en fonction du mode de tri choisi dans les panels admins recommandations et projets*/
     public function selectedMethod($table, $mode = false) {
 
 	    /* Ordre croissant / décroissant */
@@ -61,29 +64,6 @@ class Portfolio_model extends CI_Model
         else {
             return $this->getTable($table);
         }
-    }
-
-    public function checkExistUser($where) {
-
-        $query = $this->db->select('*')
-            ->from('admin_logs')
-            ->where('admin_name', $where)
-            ->get();
-
-        if ($query->num_rows() > 0) {
-            return $query->row();
-        } else {
-            return false;
-        }
-
-    }
-
-    public function cipherPassword($password) {
-
-        $cipherPassword = $this->encryption->encrypt($password);
-
-        return $cipherPassword;
-
     }
 
 }

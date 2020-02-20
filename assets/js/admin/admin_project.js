@@ -1,3 +1,4 @@
+// Fonction d'envoi de la valeur choisie dans le menu déroulant de type select (qui permet de chosir la méthode de tri pour les projets)
 $('select.select-order').change(function(){
     var formData = $('form.form-select-order').serialize();
     var url = site_url + 'admin/project-select-order/';
@@ -14,6 +15,7 @@ $('select.select-order').change(function(){
         }});
 });
 
+// Fonction qui permet d'afficher le modal correspondant à un projet donné
 $(document).on('click', 'button.btn-edit-project', function () {
     var url = site_url + 'admin/project-edit-get-view';
     var project = $(this).attr('data-id');
@@ -44,6 +46,7 @@ $(document).on('click', 'button.btn-edit-project', function () {
 
 });
 
+// Fonction qui permet d'envoyer les champs du formulaire contenu dans le modal de modification d'un projet donné
 $(document).on('click', 'button.btn-edit-project-confirm', function () {
 
     var formData = $('form.form-edit-project').serialize();
@@ -98,6 +101,7 @@ $(document).on('click', 'button.btn-edit-project-confirm', function () {
 
 });
 
+// Fonction qui permet d'envoyer les champs du formulaire de création d'un nouveau projet
 $('button.btn-add-project').on('click', function () {
 
     var formData = $('form.form-add-project').serialize();

@@ -1,3 +1,4 @@
+// Fonction qui notifie le changement de l'état du slider pour chaque card  de recommandation dans le panel admin
 $(document).on('click', 'input.slider-change',function() {
 
     var status;
@@ -35,6 +36,7 @@ $(document).on('click', 'input.slider-change',function() {
 
 });
 
+// Fonction d'envoi de la valeur choisie dans le menu déroulant de type select (qui permet de chosir la méthode de tri pour les recommandations)
 $('select.select-order').change(function(){
     var formData = $('form.form-select-order').serialize();
     var url = site_url + 'admin/recommend-select-order/';

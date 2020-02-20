@@ -1,3 +1,5 @@
+<!-- Contenu du modal de modification d'un projet  -->
+
 <div class="col-11">
     <label class="text" for="editID"> N°Projet * </label>
     <input type="text" class="form-custom" name="editID" id="editID" value="<?= $selected_project->id ?>" readonly>
@@ -32,6 +34,7 @@
     <label class="text" for="editStatus"> Statut du projet * </label>
     <select class="custom-select" name="editStatus" id="editStatus">
 
+        <!-- En fonction du statu actuel du projet, on fait en sorte de l'afficher automatiquement en présélectionné avec l'attribut selected -->
         <?php if ($selected_project->status === 'progress') { ?>
             <option value="progress" selected> En cours </option>
             <option value="completed"> Achevé </option>

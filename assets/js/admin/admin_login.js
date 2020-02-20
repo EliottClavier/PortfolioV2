@@ -1,3 +1,4 @@
+// Fonction d'envoi des champs du formulaire de connexion dans le panel admin
 $('button.btn-admin-login').on('click', function () {
     var id = $('#loginID').val();
     var password = $('#loginPassword').val();

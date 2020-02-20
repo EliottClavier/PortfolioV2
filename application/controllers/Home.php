@@ -47,6 +47,7 @@ class Home extends MY_Controller {
 
     }
 
+    /* Fonction de vérification du formulaire de contact et d'envoi de mail à l'adresse spécifiée dans email.php */
     public function formContact() {
 
 	    $data = $this->input->post();
@@ -97,20 +98,20 @@ class Home extends MY_Controller {
 
         } else {
 
-
+            /* On crée un tableau où on stocke les données reçues */
             $setData = array(
-
                 'name' => $data['contactName'],
                 'first_name' => $data['contactFirstName'],
                 'company_name' => $data['contactCompanyName'],
                 'email' => $data['contactEmail'],
                 'message_object' => $data['contactObject'],
                 'message_text' => $data['contactText'],
-
             );
-          
+
+            /* On charge la librarie email */
             $this->load->library('email');
 
+            /* On crée le mail à envoyer en fonction des données envoyés par le formulaire */
             $this->email->from(htmlspecialchars($setData['email']), htmlspecialchars($setData['name'])
             . ' ' . htmlspecialchars($setData['first_name']) . ' - ' . htmlspecialchars($setData['company_name']));
             $this->email->to('eliott.clavier.redirection@eliott-clavier.com');
@@ -122,6 +123,7 @@ class Home extends MY_Controller {
 
     }
 
+    /* Fonction de vérification du recommendation de contact et de stockage dans la BDD */
     public function formRecommend() {
 
         $data = $this->input->post();
@@ -177,8 +179,8 @@ class Home extends MY_Controller {
 
         } else {
 
+            /* On crée un tableau où on stocke les données reçues */
             $setData = array(
-
                 'name' => $data['recommendName'],
                 'first_name' => $data['recommendFirstName'],
                 'company_name' => $data['recommendCompanyName'],
@@ -187,9 +189,9 @@ class Home extends MY_Controller {
                 'date_end' => $data['recommendEnd'],
                 'date_created' => date("Y-m-d H:i:s"),
                 'message_text' => $data['recommendText'],
-
             );
 
+            /* On insère les données reçues */
             $this->portfolioManager->insertDB('recommend', $setData);
 
         }

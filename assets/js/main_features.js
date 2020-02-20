@@ -1,3 +1,4 @@
+/* Fonction qui permet de faire apparaître / disparaître la sidebar */
 $('.menu-trigger').on('click', function() {
 
     // La balise <i> de Font Awesome se tranforme en balise svg

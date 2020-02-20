@@ -1,3 +1,4 @@
+// Fonction d'envoi des champs du formulaire de modification de l'identifiant utilisateur
 $('button.btn-update-user-name-send').on('click', function() {
 
     $('#modalUpdateUserName').modal("show");
@@ -44,6 +45,7 @@ $('button.btn-update-user-name-send').on('click', function() {
 
 });
 
+// Fonction d'envoi des champs du formulaire de modification du mot de passe utilisateur
 $('button.btn-update-user-password-send').on('click', function() {
 
     $('#modalUpdateUserPassword').modal("show");

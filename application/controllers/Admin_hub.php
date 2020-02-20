@@ -41,14 +41,15 @@ class Admin_hub extends MY_Controller {
 
     }
 
+    /* Fonction de deconnexion / destruction de session */
     public  function logout() {
         $this->session->sess_destroy();
         header('Location: ../admin');
         exit();
     }
 
+    /* Fonction de connexion avec validation de formulaire et comparaison avec base de données */
     public function login_attempt() {
-
 
         $rulesArray = array(
             array(
@@ -77,9 +78,9 @@ class Admin_hub extends MY_Controller {
 
         } else {
 
+            /* On récupère les valeurs du formulaire qu'on compare à la base de données */
             $login = $this->input->post('loginID');
             $password = $this->input->post('loginPassword');
-
 
             $checkUser = $this->adminManager->checkExistUser(
                 array(
@@ -126,6 +127,7 @@ class Admin_hub extends MY_Controller {
 
     }
 
+    /* Fonction de modification de nom d'utilisateur */
     public function modifyUserName() {
 
         $rulesArray = array(
@@ -149,6 +151,7 @@ class Admin_hub extends MY_Controller {
 
         } else {
 
+            /* On remplace la donnée correspondant au nom de l'utilisateur */
             $newUsername = $this->input->post('userName');
             $this->adminManager->adminUpdate('admin_name',  $newUsername, $this->session->userdata('id'), 'admin_logs');
 
@@ -159,6 +162,7 @@ class Admin_hub extends MY_Controller {
 
     }
 
+    /* Fonction de modification de mot de passe utilisateur */
     public function modifyUserPassword() {
 
         $rulesArray = array(
@@ -189,7 +193,7 @@ class Admin_hub extends MY_Controller {
 
             /* On récupère le mot de passe envoyé puis on le crypte */
             $newPassword = $this->input->post('userPassword');
-            $newPasswordCiphered = $this->portfolioManager->cipherPassword($newPassword);
+            $newPasswordCiphered = $this->adminManager->cipherPassword($newPassword);
 
             $this->adminManager->adminUpdate('admin_password',  $newPasswordCiphered, $this->session->userdata('id'), 'admin_logs');
 
@@ -200,6 +204,7 @@ class Admin_hub extends MY_Controller {
 
     }
 
+    /* Fonction de chargement de la vue recommandation admin */
     public function adminRecommend() {
 
         // Chargement des CSS
@@ -217,22 +222,13 @@ class Admin_hub extends MY_Controller {
             'assets/js/admin/admin_recommend',
         ));
 
-        $this->data['recommendations'] = $this->portfolioManager->selectedMethod('recommend');
-
         $this->data['subview'] = 'front_office/admin/admin_recommend';
 
         $this->load->view('components_home/main', $this->data);
 
     }
 
-    public function adminRecommendSwitchStatus() {
-
-        $newStatus = $this->input->post('status');
-        $id = $this->input->post('id');
-        $this->adminManager->adminUpdate('status', $newStatus, $id, 'recommend');
-
-    }
-
+    /* Fonction d'affichage des recommendations en fonction de filtres données */
     public function adminRecommendGetOrder() {
 
         $mode = $this->input->post('selectOrder');
@@ -247,6 +243,16 @@ class Admin_hub extends MY_Controller {
 
     }
 
+    /* Fonction de modification du status de la recommandation (en attente / vérifiée) */
+    public function adminRecommendSwitchStatus() {
+
+        $newStatus = $this->input->post('status');
+        $id = $this->input->post('id');
+        $this->adminManager->adminUpdate('status', $newStatus, $id, 'recommend');
+
+    }
+
+    /* Fonction de chargement de la vue projet admin */
     public function adminProject() {
 
         // Chargement des CSS
@@ -264,13 +270,12 @@ class Admin_hub extends MY_Controller {
             'assets/js/admin/admin_project'
         ));
 
-        $this->data['projects'] = $this->portfolioManager->getTable('project');
-
         $this->data['subview'] = 'front_office/admin/admin_project';
 
         $this->load->view('components_home/main', $this->data);
     }
 
+    /* Fonction d'affichage des projets en fonction de filtres données */
     public function adminProjectGetOrder() {
 
         $mode = $this->input->post('selectOrder');
@@ -285,6 +290,7 @@ class Admin_hub extends MY_Controller {
 
     }
 
+    /* Fonction d'affichage du modal de modification d'un projet */
     public function adminProjectGetViewModal() {
 
 	    $projectNum = $this->input->post('project');
@@ -300,6 +306,7 @@ class Admin_hub extends MY_Controller {
 
     }
 
+    /* Fonction de modification d'un projet en BDD en fonction des données envoyés dans le formulaire du modal*/
     public function adminProjectUpdate() {
 
 	    $rulesArray = array(
@@ -345,6 +352,7 @@ class Admin_hub extends MY_Controller {
 
             $editProject = $this->input->post();
 
+            /* On stocke les données reçues dans un tableau avec comme clés les noms de colonnes dans la table project */
             $editDatas = array(
                 'name' => $editProject['editName'],
                 'description' => $editProject['editDesc'],
@@ -353,6 +361,7 @@ class Admin_hub extends MY_Controller {
                 'status' => $editProject['editStatus']
             );
 
+            /* Pour chaque clé du tableau correspondant à une colonne, pour un ID donné, on remplace les valeurs */
             foreach ($editDatas as $key => $value) {
                 $this->adminManager->adminUpdate($key, $value, $editProject['editID'], 'project');
             }
@@ -367,12 +376,10 @@ class Admin_hub extends MY_Controller {
         }
     }
 
-
-    /* Fonction callback */
+    /* Fonction callback permettant de savoir si le nom de l'utilisateur est déjà pris */
     public function username_check($data) {
 
-        $pseudoChecker = $this->portfolioManager->checkExistUser($data);
-        // die(var_dump($pseudoChecker));
+        $pseudoChecker = $this->adminManager->checkExistUser($data);
 
         if (!empty($pseudoChecker)) {
             $this->form_validation->set_message('username_check', 'Cet identifiant existe déjà.');
