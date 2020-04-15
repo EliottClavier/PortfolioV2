@@ -21,7 +21,6 @@ TO-DO List :
 
     - Gérer les erreurs 404
     - Gérer les singuliers / plu
-    - Ajouter un favicon
     - Changer le format des dates à l'affichage
     - Corriger les erreurs d'ancre dans la sidebar (mauvais positionement du scroll)
     - Ajouter les catégories "Ma Formation" et "Mes expériences professionnelles" au panel administratif
