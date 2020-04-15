@@ -5,12 +5,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
-	<meta name="author" content="">
-	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="author" content="CLAVIER Eliott">
     <link href="https://fonts.googleapis.com/css?family=Esteban|Montserrat&display=swap" rel="stylesheet">
 	<!-- FontAwesome JS -->
 	<script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
-	<!-- Global CSS -->
+
+    <!-- FavIcon -->
+    <link rel="icon" href="<?php echo base_url(); ?>assets/images/favicon/favicon.ico" type="favicon">
 
 	<?php foreach ($css as $cs) {
 		echo $cs;
