@@ -1,0 +1,7 @@
+system/
+.idea/
+application/controllers/Admin_hub.php
+application/controllers/Admin_project_add.php
+application/config/
+application/model/Admin_model.php
+phpstorm.php
